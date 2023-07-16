@@ -1,0 +1,50 @@
+{{ $user := (($.Site.Data.api.github.user) | default "") }}
+{{ $ts := (now.Unix) }}
+{{ $headers := (dict
+"User-Agent" (($.Site.Data.api.user_agent) | default "")
+"Authorization" (printf "token %s" (($.Site.Data.api.github.token) | base64Decode))
+) }}
+
+{{ $events := (getJSON "https://api.github.com/users/" ($user) "/events/public?ts=" ($ts) ($headers)) }}
+
+<article>
+  <h2 id="events" class="text-center text-uppercase border-bottom pb-1 mb-3">
+    <a href="#events">{{ (i18n "github.events") }}</a>
+  </h2>
+
+    {{ with ($events) }}
+
+      <div class="node-body">
+        <div class="row row-cols-1 row-cols-lg-2">
+          <div class="col">
+            <div class="table-responsive">
+              <table class="table table-striped table-bordered align-middle">
+                <tbody>
+
+                {{ range (first 15 .) }}
+                    {{ (partial "module/github/events.list" .) }}
+                {{ end }}
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="col">
+            <div class="table-responsive">
+              <table class="table table-striped table-bordered align-middle">
+                <tbody>
+
+                {{ range (first 15 (after 15 .)) }}
+                    {{ (partial "module/github/events.list" .) }}
+                {{ end }}
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    {{ end }}
+
+</article>

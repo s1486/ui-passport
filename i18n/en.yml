@@ -1,0 +1,204 @@
+# -------------------------------------------------------------------------------------------------------------------- #
+# General.
+# -------------------------------------------------------------------------------------------------------------------- #
+
+birthday: { other: "Birthday" }
+categories: { other: "Categories" }
+close: { other: "Close" }
+contacts: { other: "Contacts" }
+developers: { other: "Developers" }
+egg: { other: "Oops!" }
+email: { other: "E-mail" }
+languages: { other: "Languages" }
+location: { other: "Location" }
+name: { other: "Name" }
+nickname: { other: "Nickname" }
+organization: { other: "Organization" }
+phone: { other: "Phone" }
+qrcode: { other: "QR Code" }
+site: { other: "Site" }
+social_networks: { other: "Social networks" }
+tags: { other: "Tags" }
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Expertise.
+# -------------------------------------------------------------------------------------------------------------------- #
+
+expertise:
+  header: { other: "Expertise" }
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Experience.
+# -------------------------------------------------------------------------------------------------------------------- #
+
+experience:
+  header: { other: "Experience" }
+  date: { other: "Work period" }
+  position: { other: "Position" }
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Portfolio.
+# -------------------------------------------------------------------------------------------------------------------- #
+
+portfolio:
+  header: { other: "Portfolio" }
+  date: { other: "Date" }
+  url: { other: "Site" }
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Keybase.
+# -------------------------------------------------------------------------------------------------------------------- #
+
+keybase:
+  name: { other: "Name" }
+  nickname: { other: "Nickname" }
+  location: { other: "Location" }
+  key_pgp: { other: "PGP Key" }
+  key_fingerprint: { other: "PGP Fingerprint" }
+  key_bits: { other: "PGP Bits" }
+  confirmed: { other: "Confirmed" }
+  not_confirmed: { other: "Not Confirmed" }
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# GitHub.
+# -------------------------------------------------------------------------------------------------------------------- #
+
+github:
+  events: { other: "Events" }
+  no_events: { other: "No events." }
+  orgs: { other: "Organizations" }
+  repos: { other: "Repositories" }
+  blog: { other: "Site" }
+  twitter: { other: "Twitter" }
+  email: { other: "E-mail" }
+  watchers: { other: "Watchers" }
+  stargazers: { other: "Stargazers" }
+  forks: { other: "Forks" }
+  license: { other: "License" }
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# VK.
+# -------------------------------------------------------------------------------------------------------------------- #
+
+vk:
+  groups: { other: "Groups" }
+  wall: { other: "Wall" }
+  members: { other: "Members" }
+  site: { other: "Site" }
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Telegram.
+# -------------------------------------------------------------------------------------------------------------------- #
+
+tg:
+  chats: { other: "Channels" }
+  members: { other: "Members" }
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Requisites.
+# -------------------------------------------------------------------------------------------------------------------- #
+
+requisites:
+  bank:
+    account:
+      header: { other: "Bank account" }
+      usd:
+        beneficiary:
+          name: { other: "Beneficiary" }
+          account: { other: "Beneficiary's Account" }
+          bank: { other: "Beneficiary Bank" }
+          swift: { other: "Beneficiary's Bank SWIFT" }
+        intermediary:
+          bank: { other: "Intermediary" }
+          account: { other: "Intermediary's Bank Account" }
+          swift: { other: "Intermediary's Bank SWIFT" }
+        target: { other: "Payment Details" }
+      eur:
+        beneficiary:
+          name: { other: "Beneficiary" }
+          account: { other: "Beneficiary's Account" }
+          bank: { other: "Beneficiary Bank" }
+          swift: { other: "Beneficiary's Bank SWIFT" }
+        intermediary:
+          bank: { other: "Intermediary" }
+          account: { other: "Intermediary's Bank Account" }
+          swift: { other: "Intermediary's Bank SWIFT" }
+        target: { other: "Payment Details" }
+      rub:
+        beneficiary:
+          name: { other: "Beneficiary Name" }
+          account: { other: "Beneficiary Account" }
+          bank: { other: "Beneficiary Bank" }
+          bic: { other: "BIC" }
+          inn: { other: "ITN" }
+          kpp: { other: "IEC" }
+        correspondent:
+          account: { other: "Correspondent Account" }
+        target: { other: "Payment Details" }
+  card:
+    header: { other: "Bank Card" }
+  crypto:
+    header: { other: "Crypto" }
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Alerts.
+# -------------------------------------------------------------------------------------------------------------------- #
+
+alert:
+  github:
+    not_found:
+      other: >
+        Information from GitHub not found.
+        API key may not have been set or username may not be specified.
+  vk:
+    not_found:
+      other: >
+        Information from VK not found.
+        API key may not have been set or group ID may not be specified.
+  keybase:
+    info:
+      other: >
+        Information is synchronized with Keybase server.
+        Information is genuine and represents verified data.
+  telegram:
+    not_found:
+      other: >
+        Information from Telegram not found.
+        API key may not have been set or channel name may not be specified.
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Browser console.
+# -------------------------------------------------------------------------------------------------------------------- #
+
+console:
+  buy_me: { other: "Buy me a" }
+  about_me: { other: "About me" }
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Social.
+# -------------------------------------------------------------------------------------------------------------------- #
+
+social:
+  bitbucket: { other: "BitBucket" }
+  blogger: { other: "Blogger" }
+  digg: { other: "Digg" }
+  facebook: { other: "Facebook" }
+  github: { other: "GitHub" }
+  gitlab: { other: "GitLab" }
+  hackernews: { other: "Hacker News" }
+  instagram: { other: "Instagram" }
+  linkedin: { other: "LinkedIn" }
+  livejournal: { other: "LiveJournal" }
+  ok: { other: "OK" }
+  patreon: { other: "Patreon" }
+  pinterest: { other: "Pinterest" }
+  pocket: { other: "Pocket" }
+  reddit: { other: "Reddit" }
+  skype: { other: "Skype" }
+  telegram: { other: "Telegram" }
+  tumblr: { other: "Tumblr" }
+  twitter: { other: "Twitter" }
+  vk: { other: "VK" }
+  whatsapp: { other: "WhatsApp" }
+  wordpress: { other: "WordPress" }
+  youtube: { other: "YouTube" }

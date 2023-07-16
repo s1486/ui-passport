@@ -1,0 +1,205 @@
+# -------------------------------------------------------------------------------------------------------------------- #
+# General.
+# -------------------------------------------------------------------------------------------------------------------- #
+
+birthday: { other: "День рождения" }
+categories: { other: "Категории" }
+close: { other: "Закрыть" }
+contacts: { other: "Контакты" }
+developers: { other: "Разработчики" }
+egg: { other: "Oops!" }
+email: { other: "E-mail" }
+languages: { other: "Языки" }
+location: { other: "Местонахождение" }
+name: { other: "Имя" }
+nickname: { other: "Псевдоним" }
+organization: { other: "Организация" }
+phone: { other: "Телефон" }
+qrcode: { other: "QR Код" }
+site: { other: "Сайт" }
+site_resize: { other: "Изменить размер сайта" }
+social_networks:  { other: "Социальные сети" }
+tags: { other: "Теги" }
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Expertise.
+# -------------------------------------------------------------------------------------------------------------------- #
+
+expertise:
+  header: { other: "Компетентность" }
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Experience.
+# -------------------------------------------------------------------------------------------------------------------- #
+
+experience:
+  header: { other: "Опыт" }
+  date: { other: "Период работы" }
+  position: { other: "Должность" }
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Portfolio.
+# -------------------------------------------------------------------------------------------------------------------- #
+
+portfolio:
+  header: { other: "Работы" }
+  date: { other: "Дата" }
+  url: { other: "Сайт" }
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Keybase.
+# -------------------------------------------------------------------------------------------------------------------- #
+
+keybase:
+  name: { other: "Имя" }
+  nickname: { other: "Псевдоним" }
+  location: { other: "Местонахождение" }
+  key_pgp: { other: "Ключ PGP" }
+  key_fingerprint: { other: "Отпечаток PGP" }
+  key_bits: { other: "Биты PGP" }
+  confirmed: { other: "Подтверждено" }
+  not_confirmed: { other: "Не подтверждено" }
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# GitHub.
+# -------------------------------------------------------------------------------------------------------------------- #
+
+github:
+  events: { other: "События" }
+  no_events: { other: "Нет событий." }
+  orgs: { other: "Организации" }
+  repos: { other: "Репозитории" }
+  blog: { other: "Сайт" }
+  twitter: { other: "Twitter" }
+  email: { other: "E-mail" }
+  watchers: { other: "Наблюдатели" }
+  stargazers: { other: "Звёзды" }
+  forks: { other: "Форки" }
+  license: { other: "Лицензия" }
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# VK.
+# -------------------------------------------------------------------------------------------------------------------- #
+
+vk:
+  groups: { other: "Группы" }
+  wall: { other: "Стена" }
+  members: { other: "Подписчики" }
+  site: { other: "Сайт" }
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Telegram.
+# -------------------------------------------------------------------------------------------------------------------- #
+
+tg:
+  chats: { other: "Каналы" }
+  members: { other: "Участники" }
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Requisites.
+# -------------------------------------------------------------------------------------------------------------------- #
+
+requisites:
+  bank:
+    account:
+      header: { other: "Банковский счёт" }
+      usd:
+        beneficiary:
+          name: { other: "Beneficiary" }
+          account: { other: "Beneficiary's Account" }
+          bank: { other: "Beneficiary Bank" }
+          swift: { other: "Beneficiary's Bank SWIFT" }
+        intermediary:
+          bank: { other: "Intermediary" }
+          account: { other: "Intermediary's Bank Account" }
+          swift: { other: "Intermediary's Bank SWIFT" }
+        target: { other: "Payment Details" }
+      eur:
+        beneficiary:
+          name: { other: "Beneficiary" }
+          account: { other: "Beneficiary's Account" }
+          bank: { other: "Beneficiary Bank" }
+          swift: { other: "Beneficiary's Bank SWIFT" }
+        intermediary:
+          bank: { other: "Intermediary" }
+          account: { other: "Intermediary's Bank Account" }
+          swift: { other: "Intermediary's Bank SWIFT" }
+        target: { other: "Payment Details" }
+      rub:
+        beneficiary:
+          name: { other: "Получатель" }
+          account: { other: "Счёт получателя" }
+          bank: { other: "Банк получателя" }
+        bic: { other: "БИК" }
+        inn: { other: "ИНН" }
+        kpp: { other: "КПП" }
+        correspondent:
+          account: { other: "Корреспондентский счёт" }
+        target: { other: "Назначение платежа" }
+  card:
+    header: { other: "Банковская карта" }
+  crypto:
+    header: { other: "Крипто" }
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Alerts.
+# -------------------------------------------------------------------------------------------------------------------- #
+
+alert:
+  github:
+    not_found:
+      other: >
+        Информация от GitHub не найдена.
+        Возможно, не установлен ключ API или не указано имя пользователя.
+  vk:
+    not_found:
+      other: >
+        Информация от ВКонтакте не найдена. 
+        Возможно, не установлен ключ API или не указан ID группы.
+  keybase:
+    info:
+      other: >
+        Информация синхронизируется с сервером Keybase. 
+        Информация является подлинной и представляет собой подтверждённые данные.
+  telegram:
+    not_found:
+      other: >
+        Информация от Telegram не найдена.
+        Возможно, не установлен ключ API или не указано имя канала.
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Browser console.
+# -------------------------------------------------------------------------------------------------------------------- #
+
+console:
+  buy_me: { other: "Купите мне" }
+  about_me: { other: "Обо мне" }
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Social.
+# -------------------------------------------------------------------------------------------------------------------- #
+
+social:
+  bitbucket: { other: "BitBucket" }
+  blogger: { other: "Blogger" }
+  digg: { other: "Digg" }
+  facebook: { other: "Facebook" }
+  github: { other: "GitHub" }
+  gitlab: { other: "GitLab" }
+  hackernews: { other: "Hacker News" }
+  instagram: { other: "Instagram" }
+  linkedin: { other: "LinkedIn" }
+  livejournal: { other: "LiveJournal" }
+  ok: { other: "Одноклассники" }
+  patreon: { other: "Patreon" }
+  pinterest: { other: "Pinterest" }
+  pocket: { other: "Pocket" }
+  reddit: { other: "Reddit" }
+  skype: { other: "Skype" }
+  telegram: { other: "Telegram" }
+  tumblr: { other: "Tumblr" }
+  twitter: { other: "Twitter" }
+  vk: { other: "ВКонтакте" }
+  whatsapp: { other: "WhatsApp" }
+  wordpress: { other: "WordPress" }
+  youtube: { other: "YouTube" }
