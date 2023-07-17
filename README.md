@@ -4,18 +4,18 @@
 
 ## Install
 
-```
-git submodule add 'https://github.com/site-0001/ui-passport.git' 'themes/ui-passport'
+```sh
+$m='ui-passport'; git submodule add "https://github.com/site-0001/${m}.git" "themes/${m}"
 ```
 
 ## Update
 
-```
+```sh
 git submodule update --recursive --remote --merge
 ```
 
 ## Uninstall
 
-```
-git submodule deinit -f 'themes/ui-passport'; git rm -r --cached 'themes/ui-passport'; rm -rf '.git/modules/themes/ui-passport'; rm -rf 'themes/ui-passport'
+```sh
+$m='ui-passport'; git submodule deinit -f "themes/${m}"; git rm -r --cached "themes/${m}"; rm -rf ".git/modules/themes/${m}"; rm -rf "themes/${m}"
 ```
