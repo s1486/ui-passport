@@ -1,12 +1,12 @@
 name = "UI Passport"
 license = "MIT"
-licenselink = "https://github.com/site-0001/ui-passport/blob/main/LICENSE"
-description = "Passport User Interface"
-homepage = "https://v77.dev"
+licenselink = ""
+description = "Passport UI."
+homepage = "https://ihub.to"
 tags = ["website", "responsive", "multilingual", "mobile"]
 features = ["posts", "shortcodes", "comments"]
 min_version = "0.88.0"
 
 [author]
-  name = "v77 Development"
-  homepage = "https://v77.dev"
+name = "iHub TO"
+homepage = "https://ihub.to"

@@ -32,8 +32,8 @@ expertise:
 # -------------------------------------------------------------------------------------------------------------------- #
 
 experience:
-  header: { other: "Experience" }
   date: { other: "Work period" }
+  header: { other: "Experience" }
   position: { other: "Position" }
 
 # -------------------------------------------------------------------------------------------------------------------- #
@@ -41,8 +41,8 @@ experience:
 # -------------------------------------------------------------------------------------------------------------------- #
 
 portfolio:
-  header: { other: "Portfolio" }
   date: { other: "Date" }
+  header: { other: "Portfolio" }
   url: { other: "Site" }
 
 # -------------------------------------------------------------------------------------------------------------------- #
@@ -50,13 +50,13 @@ portfolio:
 # -------------------------------------------------------------------------------------------------------------------- #
 
 keybase:
+  confirmed: { other: "Confirmed" }
+  key_bits: { other: "PGP Bits" }
+  key_fingerprint: { other: "PGP Fingerprint" }
+  key_pgp: { other: "PGP Key" }
+  location: { other: "Location" }
   name: { other: "Name" }
   nickname: { other: "Nickname" }
-  location: { other: "Location" }
-  key_pgp: { other: "PGP Key" }
-  key_fingerprint: { other: "PGP Fingerprint" }
-  key_bits: { other: "PGP Bits" }
-  confirmed: { other: "Confirmed" }
   not_confirmed: { other: "Not Confirmed" }
 
 # -------------------------------------------------------------------------------------------------------------------- #
@@ -64,17 +64,17 @@ keybase:
 # -------------------------------------------------------------------------------------------------------------------- #
 
 github:
+  blog: { other: "Site" }
+  email: { other: "E-mail" }
   events: { other: "Events" }
+  forks: { other: "Forks" }
+  license: { other: "License" }
   no_events: { other: "No events." }
   orgs: { other: "Organizations" }
   repos: { other: "Repositories" }
-  blog: { other: "Site" }
-  twitter: { other: "Twitter" }
-  email: { other: "E-mail" }
-  watchers: { other: "Watchers" }
   stargazers: { other: "Stargazers" }
-  forks: { other: "Forks" }
-  license: { other: "License" }
+  twitter: { other: "Twitter" }
+  watchers: { other: "Watchers" }
 
 # -------------------------------------------------------------------------------------------------------------------- #
 # VK.
@@ -82,9 +82,9 @@ github:
 
 vk:
   groups: { other: "Groups" }
-  wall: { other: "Wall" }
   members: { other: "Members" }
   site: { other: "Site" }
+  wall: { other: "Wall" }
 
 # -------------------------------------------------------------------------------------------------------------------- #
 # Telegram.
@@ -171,8 +171,8 @@ alert:
 # -------------------------------------------------------------------------------------------------------------------- #
 
 console:
-  buy_me: { other: "Buy me a" }
   about_me: { other: "About me" }
+  buy_me: { other: "Buy me a" }
 
 # -------------------------------------------------------------------------------------------------------------------- #
 # Social.
