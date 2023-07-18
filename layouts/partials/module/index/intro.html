@@ -146,9 +146,14 @@
 
                     {{ range ($.Site.Data.profiles) }}
                         {{ $url := (urls.Parse .url) }}
-                        {{ $name := (split $url.Host ".") }}
+                        {{ $name := "" }}
+                        {{ if .name }}
+                            {{ $name = (.name) }}
+                        {{ else }}
+                            {{ $name = ((index ((split $url.Host ".")) 0) | humanize) }}
+                        {{ end }}
                         <div class="col">
-                          <a title="{{ ((index ($name) 0) | humanize) }}" class="btn btn-light btn-social btn-lg" href="{{ (.url) }}" target="_blank" rel="noopener noreferrer">
+                          <a title="{{ ($name) }}" class="btn btn-light btn-social btn-lg" href="{{ (.url) }}" target="_blank" rel="noopener noreferrer">
                             <i class="{{ (.icon) }} fa-fw"></i>
                           </a>
                         </div>
