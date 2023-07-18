@@ -2,7 +2,7 @@
 
     {{ if (and ($.Site.Data.api.github.token) ($.Site.Data.api.github.user)) }}
 
-      <div class="section py-3 py-md-4">
+      <div class="section py-5">
         <div class="container">
 
             {{ (partial "breadcrumb" .) }}
@@ -10,14 +10,14 @@
 
         </div>
       </div>
-      <div class="section py-3 py-md-4">
+      <div class="section py-5">
         <div class="container">
 
             {{ (partial "module/github/orgs" .) }}
 
         </div>
       </div>
-      <div class="section py-3 py-md-4">
+      <div class="section py-5">
         <div class="container">
 
             {{ (partial "module/github/repos" .) }}
@@ -27,7 +27,7 @@
 
     {{ else }}
 
-      <div class="section py-3 py-md-4">
+      <div class="section py-5">
         <div class="container">
 
             {{ (partial "breadcrumb" .) }}
