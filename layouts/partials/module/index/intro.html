@@ -91,9 +91,7 @@
                             <ul class="list-unstyled m-0">
                                 {{ range . }}
                                   <li>
-                                    <a href='mailto:{{ (partial "function/email" (dict "email" .)) }}'>
-                                        {{ (partial "function/email" (dict "email" .)) }}
-                                    </a>
+                                      {{ (partial "function/email" (dict "email" .)) }}
                                   </li>
                                 {{ end }}
                             </ul>
@@ -110,7 +108,7 @@
                             <ul class="list-unstyled m-0">
                                 {{ range . }}
                                   <li>
-                                    <a href="tel:{{ . }}">{{ (partial "function/phone" (dict "phone" .)) }}</a>
+                                      {{ (partial "function/phone" (dict "phone" .)) }}
                                   </li>
                                 {{ end }}
                             </ul>
