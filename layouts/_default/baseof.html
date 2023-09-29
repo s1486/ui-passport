@@ -16,7 +16,7 @@
 <body class="d-flex flex-column h-100 {{ ($home) }} {{ ($node) }} {{ ($page) }} type-{{ ($type) }}">
 <header>{{ (partial "header" .) }}</header>
 <main class="wrapper flex-shrink-0">{{ block "main" . }}{{ end }}</main>
-<footer class="mt-auto">{{ (partial "footer" .) }}</footer>
+<footer class="mt-auto border-top bg-light">{{ (partial "footer" .) }}</footer>
 {{ (partial "ui.js" .) }}
 </body>
 </html>

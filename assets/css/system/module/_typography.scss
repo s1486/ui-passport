@@ -13,8 +13,7 @@ body {
       @include font-serif();
 
       blockquote {
-        font-size: 1.25rem;
-        border-left: .5rem solid #f8f9fa;
+        border-left: .5rem solid var(--bs-gray-200);
         padding-left: 1rem;
       }
 
@@ -24,20 +23,22 @@ body {
 
       code {
         @include font-mono();
+        background-color: rgba(var(--bs-danger-rgb), 5%);
+        border-radius: var(--bs-border-radius-sm);
+        padding: .1rem .3rem;
         white-space: nowrap;
       }
 
       pre {
         @include font-mono();
-        border-radius: .25rem;
-        font-size: 1rem;
-        max-height: 40rem;
+        border-radius: var(--bs-border-radius-sm);
 
         > code {
-          background: #333;
-          color: #fff;
+          background: var(--bs-gray-900);
+          color: var(--bs-gray-200);
           display: block;
-          padding: 1em;
+          font-size: var(--bs-body-font-size);
+          padding: 1rem;
           white-space: pre;
         }
       }
