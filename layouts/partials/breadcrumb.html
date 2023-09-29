@@ -3,7 +3,7 @@
       {{ range (.Ancestors.Reverse) }}
         <li class="breadcrumb-item">
           <a href="{{ (.RelPermalink) }}">
-              {{ if (.IsHome) }}<i class="fas fa-home fa-fw fa-fw"></i>{{ else }}{{ (.Title) }}{{ end }}
+              {{ if (.IsHome) }}<i class="fas fa-home fa-fw"></i>{{ else }}{{ (.Title) }}{{ end }}
           </a>
         </li>
       {{ end }}

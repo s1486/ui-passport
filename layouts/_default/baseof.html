@@ -7,7 +7,7 @@
 {{ if ($.IsNode) }}{{ $node = "is-node" }}{{ end }}
 {{ if ($.IsPage) }}{{ $page = "is-page" }}{{ end }}
 
-<html class="h-100" dir="ltr" lang="{{ $lang }}"
+<html class="h-100" dir="ltr" lang="{{ ($lang) }}"
       prefix="og: http://ogp.me/ns#
       article: http://ogp.me/ns/article#
       profile: http://ogp.me/ns/profile#
@@ -17,9 +17,6 @@
 <header>{{ (partial "header" .) }}</header>
 <main class="wrapper flex-shrink-0">{{ block "main" . }}{{ end }}</main>
 <footer class="mt-auto">{{ (partial "footer" .) }}</footer>
-{{ (partial "module/contacts.modal" .) }}
-{{ (partial "module/developers.modal" .) }}
-{{ (partial "module/egg.modal" .) }}
 {{ (partial "ui.js" .) }}
 </body>
 </html>

@@ -1,5 +1,5 @@
 export function init() {
-  modal('.modal')
+  modal('.modal');
 }
 
 function modal($selector) {

@@ -2,11 +2,20 @@
 {{ $id := ((.id) | default "") }}
 {{ $active := ("") }}
 
-{{ range (index $x.Site.Menus $id) }}
-
+{{ range (index ($x.Site.Menus) ($id)) }}
     {{ $active = (or ($x.IsMenuCurrent .Menu .) ($x.HasMenuCurrent .Menu .)) }}
-    {{ $active = (or ($active) (eq (.Name) ($x.Title))) }}
-
+    {{ if ($x.File) }}
+        {{ $active = (or
+        (or ($active) (eq (.Name) ($x.Title)))
+        (or ($active) (eq (.Identifier) ($x.Section)))
+        (or ($active) (eq (.Identifier) ($x.File.ContentBaseName)))
+        ) }}
+    {{ else }}
+        {{ $active = (or
+        (or ($active) (eq (.Name) ($x.Title)))
+        (or ($active) (eq (.Identifier) ($x.Section)))
+        ) }}
+    {{ end }}
     {{ if (.HasChildren) }}
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -16,7 +25,18 @@
         <div class="dropdown-menu shadow">
             {{ range (.Children) }}
                 {{ $active = (or ($x.IsMenuCurrent .Menu .) ($x.HasMenuCurrent .Menu .)) }}
-                {{ $active = (or ($active) (eq (.Name) ($x.Title))) }}
+                {{ if ($x.File) }}
+                    {{ $active = (or
+                    (or ($active) (eq (.Name) ($x.Title)))
+                    (or ($active) (eq (.Identifier) ($x.Section)))
+                    (or ($active) (eq (.Identifier) ($x.File.ContentBaseName)))
+                    ) }}
+                {{ else }}
+                    {{ $active = (or
+                    (or ($active) (eq (.Name) ($x.Title)))
+                    (or ($active) (eq (.Identifier) ($x.Section)))
+                    ) }}
+                {{ end }}
                 <a class="dropdown-item {{ if ($active) }}active{{ end }}" href="{{ ((.URL) | relURL) }}">
                     {{ if (.Pre) }}<i class="{{ (.Pre) }} fa-fw"></i>{{ end }}
                   <span>{{ (.Name) }}</span>
@@ -32,5 +52,4 @@
         </a>
       </li>
     {{ end }}
-
 {{ end }}

@@ -1,5 +1,5 @@
 export function init() {
-  generator('[data-ext-fn="ext-qrcode"]');
+  generator('[data-fn="qrcode"]');
 }
 
 function generator($selector) {

@@ -1,6 +1,6 @@
 export function init() {
-  local('[data-ext-fn="ext-date-local"]');
-  local('[data-ext-fn="ext-time-local"]', 4);
+  local('[data-fn="date-local"]');
+  local('[data-fn="time-local"]', 4);
 }
 
 function local($selector, $view = 0) {
@@ -15,15 +15,15 @@ function local($selector, $view = 0) {
 }
 
 function _date($iso, $view) {
-  let $date, $year, $month, $day, $hours, $minutes, $seconds, $out;
+  let $out;
 
-  $date = new Date($iso);
-  $year = $date.getFullYear();
-  $month = _f24($date.getMonth() + 1);
-  $day = _f24($date.getDate());
-  $hours = _f24($date.getHours());
-  $minutes = _f24($date.getMinutes());
-  $seconds = _f24($date.getSeconds());
+  const $date = new Date($iso);
+  const $year = $date.getFullYear();
+  const $month = _f24($date.getMonth() + 1);
+  const $day = _f24($date.getDate());
+  const $hours = _f24($date.getHours());
+  const $minutes = _f24($date.getMinutes());
+  const $seconds = _f24($date.getSeconds());
 
   switch ($view) {
     case 0:

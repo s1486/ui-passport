@@ -1,5 +1,5 @@
 export function init() {
-  selectAll('[data-ext-fn="ext-select-all"]');
+  selectAll('[data-fn="select-all"]');
 }
 
 function selectAll($selector) {
@@ -11,12 +11,7 @@ function selectAll($selector) {
 }
 
 function _eventSelectAll($i) {
-  let $event;
-
-  $event = $i.addEventListener('click', ($e) => {
+  return $i.addEventListener('click', ($e) => {
     $e.currentTarget.select();
-    document.execCommand('copy');
   });
-
-  return $event;
 }

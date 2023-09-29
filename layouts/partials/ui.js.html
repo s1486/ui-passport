@@ -1,38 +1,30 @@
 {{ $scripts := ($.Site.Data.ui.scripts) }}
 
-<!--[ js: vendor-external ]-->
+<!--[ vendor-external ]-->
 {{ with ($scripts.vendor.external) }}
     {{ range . }}
       <script src="{{ . }}" crossorigin="anonymous" defer></script>
     {{ end }}
 {{ end }}
-<!--[ / js: vendor-external ]-->
+<!--[ / vendor-external ]-->
 
-<!--[ js: vendor-internal ]-->
+<!--[ vendor-internal ]-->
 {{ with ($scripts.vendor.internal) }}
     {{ $bundle := slice }}
-    {{ range . }}
-        {{ $bundle = (($bundle) | append (resources.Get .)) }}
-    {{ end }}
-
+    {{ range . }}{{ $bundle = (($bundle) | append (resources.Get .)) }}{{ end }}
     {{ $bundle = (($bundle) | resources.Concat "js/vendor.bundle.js") }}
     {{ $bundle = ((($bundle) | minify) | resources.Fingerprint "sha512") }}
-
     <script src="{{ ($bundle.RelPermalink) }}" integrity="{{ ($bundle.Data.Integrity) }}" defer></script>
 {{ end }}
-<!--[ / js: vendor-internal ]-->
+<!--[ / vendor-internal ]-->
 
-<!--[ js: ui-internal ]-->
+<!--[ system-internal ]-->
 {{ with ($scripts.system.internal) }}
     {{ $bundle := slice }}
-    {{ range . }}
-        {{ $bundle = (($bundle) | append (resources.Get .)) }}
-    {{ end }}
-
+    {{ range . }}{{ $bundle = (($bundle) | append (resources.Get .)) }}{{ end }}
     {{ $bundle = ((($bundle) | resources.Concat "js/system.bundle.js") | js.Build) }}
     {{ $bundle = (($bundle) | resources.ExecuteAsTemplate ("js/system.bundle.js" | relLangURL) .) }}
     {{ $bundle = ((($bundle) | minify) | resources.Fingerprint "sha512") }}
-
     <script src="{{ ($bundle.RelPermalink) }}" integrity="{{ ($bundle.Data.Integrity) }}" defer></script>
 {{ end }}
-<!--[ / js: ui-internal ]-->
+<!--[ / system-internal ]-->
