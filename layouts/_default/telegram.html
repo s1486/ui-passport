@@ -3,7 +3,7 @@
   <div class="section py-5">
     <div class="container">
 
-        {{ if (and ($.Site.Data.api.telegram.token) ($.Site.Data.api.telegram.chat.name)) }}
+        {{ if (and (site.Data.api.telegram.token) (site.Data.api.telegram.chat.name)) }}
 
             {{ (partial "breadcrumb" .) }}
             {{ (partial "module/telegram/channels" .) }}

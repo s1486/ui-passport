@@ -8,7 +8,7 @@
         <div class="col-lg-4">
           <div class="node-cover text-center p-3">
             <img class="img-fluid rounded"
-                 src='https://gravatar.com/avatar/{{ (($.Site.Data.profile.photo) | md5) }}?s=512&amp;d=identicon&amp;ts={{ ($ts) }}'
+                 src='https://gravatar.com/avatar/{{ ((site.Data.profile.photo) | md5) }}?s=512&amp;d=identicon&amp;ts={{ ($ts) }}'
                  alt="Photo" loading="lazy"/>
           </div>
         </div>
@@ -18,7 +18,7 @@
               <div class="flex-shrink-0 mb-3">
                 <div class="row row-cols-1 g-1">
 
-                    {{ with (index ($.Site.Data.profile.fullname) (.Lang)) }}
+                    {{ with (index (site.Data.profile.fullname) (.Lang)) }}
                       <div class="col">
                         <div class="row">
                           <div class="col-4">{{ (i18n "name") }}</div>
@@ -27,9 +27,9 @@
                       </div>
                     {{ end }}
 
-                    {{ with ($.Site.Data.profile.nickname) }}
+                    {{ with (site.Data.profile.nickname) }}
                         {{ $nickname := . }}
-                        {{ with ($.Site.Data.profile.username) }}
+                        {{ with (site.Data.profile.username) }}
                             {{ $nickname = ((printf "<a href='https://keybase.io/%s' target='_blank' rel='noopener noreferrer'>%s</a>" (.) ($nickname)) | safeHTML) }}
                         {{ end }}
                         <div class="col">
@@ -40,7 +40,7 @@
                         </div>
                     {{ end }}
 
-                    {{ with ($.Site.Data.profile.birthday) }}
+                    {{ with (site.Data.profile.birthday) }}
                       <div class="col">
                         <div class="row">
                           <div class="col-4">{{ (i18n "birthday") }}</div>
@@ -52,7 +52,7 @@
                       </div>
                     {{ end }}
 
-                    {{ with (index ($.Site.Data.profile.location) (.Lang)) }}
+                    {{ with (index (site.Data.profile.location) (.Lang)) }}
                       <div class="col">
                         <div class="row">
                           <div class="col-4">{{ (i18n "location") }}</div>
@@ -63,7 +63,7 @@
                       </div>
                     {{ end }}
 
-                    {{ with (index ($.Site.Data.profile.organization) (.Lang)) }}
+                    {{ with (index (site.Data.profile.organization) (.Lang)) }}
                       <div class="col">
                         <div class="row">
                           <div class="col-4">{{ (i18n "organization") }}</div>
@@ -83,7 +83,7 @@
                       </div>
                     {{ end }}
 
-                    {{ with ($.Site.Data.contacts.email) }}
+                    {{ with (site.Data.contacts.email) }}
                       <div class="col">
                         <div class="row">
                           <div class="col-4">{{ (i18n "email") }}</div>
@@ -100,7 +100,7 @@
                       </div>
                     {{ end }}
 
-                    {{ with ($.Site.Data.contacts.phone) }}
+                    {{ with (site.Data.contacts.phone) }}
                       <div class="col">
                         <div class="row">
                           <div class="col-4">{{ (i18n "phone") }}</div>
@@ -117,7 +117,7 @@
                       </div>
                     {{ end }}
 
-                    {{ with ($.Site.Data.contacts.site) }}
+                    {{ with (site.Data.contacts.site) }}
                       <div class="col">
                         <div class="row">
                           <div class="col-4">{{ (i18n "site") }}</div>
@@ -142,7 +142,7 @@
               <div class="mt-auto">
                 <div class="row row-cols-auto g-1">
 
-                    {{ range ($.Site.Data.profiles) }}
+                    {{ range (site.Data.profiles) }}
                         {{ $url := (urls.Parse .url) }}
                         {{ $name := "" }}
                         {{ if .name }}
@@ -164,7 +164,7 @@
         </div>
       </div>
 
-        {{ with (index ($.Site.Data.profile.bio) (.Lang)) }}
+        {{ with (index (site.Data.profile.bio) (.Lang)) }}
           <div class="row">
             <div class="col">
               <div class="card-body">

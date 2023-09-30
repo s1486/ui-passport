@@ -1,11 +1,11 @@
-{{ $token := ((($.Site.Data.api.vk.token) | base64Decode) | default "") }}
-{{ $version := (($.Site.Data.api.vk.version) | default "") }}
-{{ $group_id := (($.Site.Data.api.vk.group.id) | default "") }}
-{{ $group_fields := (($.Site.Data.api.vk.group.fields) | default "") }}
+{{ $token := (((site.Data.api.vk.token) | base64Decode) | default "") }}
+{{ $version := ((site.Data.api.vk.version) | default "") }}
+{{ $group_id := ((site.Data.api.vk.group.id) | default "") }}
+{{ $group_fields := ((site.Data.api.vk.group.fields) | default "") }}
 {{ $lang := ((.Lang) | default "ru") }}
 {{ $ts := (now.Unix) }}
 {{ $headers := (dict
-"User-Agent" (($.Site.Data.api.user_agent) | default "")
+"User-Agent" ((site.Data.api.user_agent) | default "")
 ) }}
 
 {{ $groups := (getJSON "https://api.vk.com/method/groups.getById?group_ids=" ($group_id) "&fields=" ($group_fields) "&lang=" ($lang) "&access_token=" ($token) "&v=" ($version) "&ts=" ($ts) ($headers)) }}

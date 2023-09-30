@@ -5,7 +5,7 @@
 
         {{ (partial "breadcrumb" .) }}
 
-        {{ if (and ($.Site.Data.api.vk.token) ($.Site.Data.api.vk.app.id)) }}
+        {{ if (and (site.Data.api.vk.token) (site.Data.api.vk.app.id)) }}
 
             {{ (partial "module/vk/groups" .) }}
 

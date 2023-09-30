@@ -1,6 +1,6 @@
 {{ $x := . }}{{ if .IsHome }}{{ $x = $.Site }}{{ end }}
 
-{{ $description := $.Site.Params.description }}
+{{ $description := site.Params.description }}
 {{ with .Summary }}{{ $description = . }}{{ end }}
 {{ with .Description }}{{ $description = . }}{{ end }}
 
@@ -16,21 +16,21 @@
      xmlns:atom="http://www.w3.org/2005/Atom"
      xmlns:sy="http://purl.org/rss/1.0/modules/syndication/">
   <channel>
-    <title>{{ if (eq .Title $.Site.Title) }}{{ $.Site.Title }}{{ else }}{{ with .Title }}{{.}} | {{ end }}{{ $.Site.Title }}{{ end }}</title>
+    <title>{{ if (eq .Title site.Title) }}{{ site.Title }}{{ else }}{{ with .Title }}{{.}} | {{ end }}{{ site.Title }}{{ end }}</title>
     <link>{{ .Permalink }}</link>
     <description>{{ $description }}</description>
-    {{ with $.Site.LanguageCode }}<language>{{.}}</language>{{ end }}
+    {{ with site.LanguageCode }}<language>{{.}}</language>{{ end }}
     <sy:updatePeriod>weekly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
-    {{ with $.Site.Params.contacts.email }}<managingEditor>{{.}}{{ with $.Site.Params.contacts.name }} ({{.}}){{ end }}</managingEditor>{{ end }}
-    {{ with $.Site.Params.contacts.email }}<webMaster>{{.}}{{ with $.Site.Params.contacts.name }} ({{.}}){{ end }}</webMaster>{{ end }}
-    {{ with $.Site.Params.license.name }}<copyright>{{.}}</copyright>{{ end }}
+    {{ with site.Params.contacts.email }}<managingEditor>{{.}}{{ with site.Params.contacts.name }} ({{.}}){{ end }}</managingEditor>{{ end }}
+    {{ with site.Params.contacts.email }}<webMaster>{{.}}{{ with site.Params.contacts.name }} ({{.}}){{ end }}</webMaster>{{ end }}
+    {{ with site.Params.license.name }}<copyright>{{.}}</copyright>{{ end }}
     <image>
       <link>{{ .Permalink }}</link>
       <url>{{ ("img/icon-128.png" | absURL) }}</url>
       <width>128</width>
       <height>128</height>
-      <title>{{ if (eq .Title $.Site.Title) }}{{ $.Site.Title }}{{ else }}{{ with .Title }}{{.}} | {{ end }}{{ $.Site.Title }}{{ end }}</title>
+      <title>{{ if (eq .Title site.Title) }}{{ site.Title }}{{ else }}{{ with .Title }}{{.}} | {{ end }}{{ site.Title }}{{ end }}</title>
       <description>{{ $description }}</description>
     </image>
     {{ if (not .Date.IsZero) }}<lastBuildDate>{{ ((.Date.UTC.Format "Mon, 02 Jan 2006 15:04:05 -0700") | safeHTML) }}</lastBuildDate>{{ end }}
