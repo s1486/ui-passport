@@ -1,11 +1,11 @@
-{{ $token := (((site.Data.api.vk.token) | base64Decode) | default "") }}
-{{ $version := ((site.Data.api.vk.version) | default "") }}
-{{ $group_id := ((site.Data.api.vk.group.id) | default "") }}
-{{ $group_fields := ((site.Data.api.vk.group.fields) | default "") }}
+{{ $token := ((site.Data.api.vk.token) | base64Decode) }}
+{{ $version := (site.Data.api.vk.version) }}
+{{ $group_id := (site.Data.api.vk.group.id) }}
+{{ $group_fields := (site.Data.api.vk.group.fields) }}
 {{ $lang := ((.Lang) | default "ru") }}
 {{ $ts := (now.Unix) }}
 {{ $headers := (dict
-"User-Agent" ((site.Data.api.user_agent) | default "")
+"User-Agent" (site.Data.api.user_agent)
 ) }}
 
 {{ $groups := (getJSON "https://api.vk.com/method/groups.getById?group_ids=" ($group_id) "&fields=" ($group_fields) "&lang=" ($lang) "&access_token=" ($token) "&v=" ($version) "&ts=" ($ts) ($headers)) }}
@@ -52,7 +52,7 @@
                     <ul class="list-inline m-0">
 
                         {{ with (.members_count) }}
-                          <li title='{{ i18n "vk.members" }}' class="list-inline-item">
+                          <li class="list-inline-item" data-bs-tooltip data-bs-title='{{ (i18n "vk.members") }}'>
                             <a class="btn btn-light btn-sm text-muted" href="https://vk.com/search?c%5Bsection%5D=people&c%5Bgroup%5D={{ ($pid) }}" target="_blank" rel="noopener noreferrer" role="button">
                               <i class="fas fa-user fa-fw me-1"></i>
                                 {{ . }}
@@ -61,7 +61,7 @@
                         {{ end }}
 
                         {{ with (.site) }}
-                          <li title='{{ i18n "vk.site" }}' class="list-inline-item">
+                          <li class="list-inline-item" data-bs-tooltip data-bs-title='{{ (i18n "vk.site") }}'>
                               {{ $url := (urls.Parse .) }}
                               {{ $scheme := "http://" }}
                               {{ if ($url.Scheme) }}{{ $scheme = "" }}{{ end }}
@@ -72,7 +72,7 @@
                         {{ end }}
 
                         {{ with (.id) }}
-                          <li title='{{ i18n "vk.wall" }}' class="list-inline-item">
+                          <li class="list-inline-item" data-bs-tooltip data-bs-title='{{ (i18n "vk.wall") }}'>
                             <button type="button" class="btn btn-light btn-sm text-muted" data-bs-toggle="modal" data-bs-target="#modal-vk-wall-{{ ($id) }}" role="button">
                               <i class="fas fa-book fa-fw"></i>
                             </button>

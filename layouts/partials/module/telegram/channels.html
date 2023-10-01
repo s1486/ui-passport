@@ -1,8 +1,8 @@
-{{ $token := (((site.Data.api.telegram.token) | base64Decode) | default "") }}
+{{ $token := ((site.Data.api.telegram.token) | base64Decode)}}
 {{ $chat := (split (site.Data.api.telegram.chat.name) ",") }}
 {{ $ts := (now.Unix) }}
 {{ $headers := (dict
-"User-Agent" ((site.Data.api.user_agent) | default "")
+"User-Agent" (site.Data.api.user_agent)
 ) }}
 
 {{ $data := (newScratch) }}
@@ -64,8 +64,8 @@
                     <ul class="list-inline m-0">
 
                         {{ with (.members_count) }}
-                          <li title='{{ (i18n "tg.members") }}' class="list-inline-item">
-                            <a class="btn btn-light btn-sm text-muted" href="{{ $url }}" target="_blank" rel="noopener noreferrer" role="button">
+                          <li class="list-inline-item" data-bs-tooltip data-bs-title='{{ (i18n "tg.members") }}'>
+                            <a class="btn btn-light btn-sm text-muted" href="{{ ($url) }}" target="_blank" rel="noopener noreferrer" role="button">
                               <i class="fas fa-user fa-fw me-1"></i>
                                 {{ . }}
                             </a>

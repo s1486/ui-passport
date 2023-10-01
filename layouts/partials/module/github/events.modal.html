@@ -1,11 +1,11 @@
-{{ $type := ((.type) | default "") }}
-{{ $id := ((.id) | default "") }}
-{{ $title := ((.title) | default "") }}
-{{ $user := ((.user) | default "") }}
-{{ $repo := ((.repo) | default "") }}
-{{ $org := ((.org) | default "") }}
+{{ $type := (.type) }}
+{{ $id := (.id) }}
+{{ $title := (.title) }}
+{{ $user := (.user) }}
+{{ $repo := (.repo) }}
+{{ $org := (.org) }}
 {{ $events := ("") }}
-{{ $headers := ((.headers) | default "") }}
+{{ $headers := (.headers) }}
 {{ $ts := (now.Unix) }}
 
 {{ if (eq ($type) ("orgs")) }}

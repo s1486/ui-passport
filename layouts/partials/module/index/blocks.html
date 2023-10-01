@@ -1,5 +1,5 @@
 {{ $x := (.context | default .) }}
-{{ $type := ((.type) | default "") }}
+{{ $type := (.type) }}
 {{ $posts := (where ($x.Site.RegularPages) "Type" "in" ($type)) }}
 
 {{ $cols := 2 }}
@@ -34,7 +34,7 @@
 
                           {{ with (.experience) }}
                               {{ if (.date.start) }}
-                                <li title='{{ i18n "experience.date" }}' class="list-inline-item">
+                                <li class="list-inline-item" data-bs-tooltip data-bs-title='{{ i18n "experience.date" }}'>
                                   <a class="btn btn-light btn-sm text-muted" role="button">
                                     <i class="fas fa-user-clock fa-fw me-1"></i>
                                       {{ ((.date.start) | time.Format "2006/01/02") }}
@@ -48,7 +48,7 @@
                                 </li>
                               {{ end }}
                               {{ if (.position) }}
-                                <li title='{{ i18n "experience.position" }}' class="list-inline-item">
+                                <li class="list-inline-item" data-bs-tooltip data-bs-title='{{ i18n "experience.position" }}'>
                                   <a class="btn btn-light btn-sm text-muted" role="button">
                                     <i class="fas fa-user-tie fa-fw me-1"></i>
                                       {{ (.position) }}
@@ -59,7 +59,7 @@
 
                           {{ with (.portfolio) }}
                               {{ if (.date) }}
-                                <li title='{{ i18n "portfolio.date" }}' class="list-inline-item">
+                                <li class="list-inline-item" data-bs-tooltip data-bs-title='{{ i18n "portfolio.date" }}'>
                                   <a class="btn btn-light btn-sm text-muted" role="button">
                                     <i class="fas fa-calendar-alt fa-fw me-1"></i>
                                       {{ ((.date) | time.Format "2006/01/02") }}
@@ -67,7 +67,7 @@
                                 </li>
                               {{ end }}
                               {{ if (.url) }}
-                                <li title='{{ i18n "portfolio.url" }}' class="list-inline-item">
+                                <li class="list-inline-item" data-bs-tooltip data-bs-title='{{ i18n "portfolio.url" }}'>
                                   <a class="btn btn-light btn-sm text-muted" href="{{ (.url) }}" target="_blank" rel="noopener noreferrer" role="button">
                                     <i class="fas fa-globe fa-fw"></i>
                                   </a>

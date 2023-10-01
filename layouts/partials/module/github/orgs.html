@@ -1,7 +1,7 @@
-{{ $user := ((site.Data.api.github.user) | default "") }}
+{{ $user := (site.Data.api.github.user) }}
 {{ $ts := (now.Unix) }}
 {{ $headers := (dict
-"User-Agent" ((site.Data.api.user_agent) | default "")
+"User-Agent" (site.Data.api.user_agent)
 "Authorization" (printf "token %s" ((site.Data.api.github.token) | base64Decode))
 ) }}
 
@@ -47,7 +47,7 @@
                   </div>
                   <div class="card-footer text-muted">
                     <ul class="list-inline m-0">
-                      <li title='{{ i18n "github.repos" }}' class="list-inline-item">
+                      <li class="list-inline-item" data-bs-tooltip data-bs-title='{{ i18n "github.repos" }}'>
                         <a class="btn btn-light btn-sm text-muted" href="{{ ($org.html_url) }}" target="_blank" rel="noopener noreferrer" role="button">
                           <i class="fas fa-book fa-fw me-1"></i>
                             {{ ($org.public_repos) }}
@@ -55,7 +55,7 @@
                       </li>
 
                         {{ with ($org.blog) }}
-                          <li title='{{ i18n "github.blog" }}' class="list-inline-item">
+                          <li class="list-inline-item" data-bs-tooltip data-bs-title='{{ i18n "github.blog" }}'>
                               {{ $url := (urls.Parse .) }}
                               {{ $scheme := "http://" }}
                               {{ if ($url.Scheme) }}{{ $scheme = "" }}{{ end }}
@@ -66,7 +66,7 @@
                         {{ end }}
 
                         {{ with ($org.twitter_username) }}
-                          <li title='{{ i18n "github.twitter" }}' class="list-inline-item">
+                          <li class="list-inline-item" data-bs-tooltip data-bs-title='{{ i18n "github.twitter" }}'>
                             <a class="btn btn-light btn-sm text-muted" href="https://twitter.com/{{ . }}" target="_blank" rel="noopener noreferrer" role="button">
                               <i class="fab fa-twitter fa-fw"></i>
                             </a>
@@ -74,7 +74,7 @@
                         {{ end }}
 
                         {{ with ($org.email) }}
-                          <li title='{{ i18n "github.email" }}' class="list-inline-item">
+                          <li class="list-inline-item" data-bs-tooltip data-bs-title='{{ i18n "github.email" }}'>
                             <a class="btn btn-light btn-sm text-muted" href="mailto:{{ . }}" target="_blank" rel="noopener noreferrer" role="button">
                               <i class="fas fa-envelope-open-text fa-fw"></i>
                             </a>
@@ -82,7 +82,7 @@
                         {{ end }}
 
                         {{ with ($org.login) }}
-                          <li title='{{ i18n "github.events" }}' class="list-inline-item">
+                          <li class="list-inline-item" data-bs-tooltip data-bs-title='{{ i18n "github.events" }}'>
                             <button type="button" class="btn btn-light btn-sm text-muted" data-bs-toggle="modal" data-bs-target="#modal-github-events-{{ ($id) }}" role="button">
                               <i class="fas fa-bolt fa-fw"></i>
                             </button>

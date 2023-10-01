@@ -26,7 +26,7 @@
 
 <tr>
   <td class="text-center">
-    <span title="{{ (($type) | humanize) }}"><i class="{{ ($icon) }} fa-fw"></i></span>
+    <span data-bs-tooltip data-bs-title='{{ (($type) | humanize) }}'><i class="{{ ($icon) }} fa-fw"></i></span>
   </td>
   <td class="text-start w-100">
     <a href="https://github.com/{{ ($url) }}" target="_blank" rel="noopener noreferrer">{{ (.repo.name) }}</a>

@@ -13,8 +13,8 @@
                   <div class="col">
                     <div class="input-group">
                       <span class="input-group-text text-uppercase"><code>{{ ($key) }}</code></span>
-                      <input class="form-control" type="text" value="{{ (.account) }}" data-ext-fn="ext-select-all" readonly/>
-                      <button title="{{ (i18n "qrcode") }}" class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modal-requisites-qrcode-{{ ($key) }}">
+                      <input class="form-control" type="text" value="{{ (.account) }}" data-fn="select-all" readonly/>
+                      <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modal-requisites-qrcode-{{ ($key) }}" data-bs-tooltip data-bs-title='{{ (i18n "qrcode") }}'>
                         <i class="fas fa-qrcode fa-fw"></i>
                       </button>
                     </div>

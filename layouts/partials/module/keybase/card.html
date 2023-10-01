@@ -1,7 +1,7 @@
-{{ $user := ((site.Data.api.keybase.user) | default "") }}
+{{ $user := (site.Data.api.keybase.user) }}
 {{ $ts := (now.Unix) }}
 {{ $headers := (dict
-"User-Agent" ((site.Data.api.user_agent) | default "")
+"User-Agent" (site.Data.api.user_agent)
 ) }}
 
 {{ $data := (getJSON "https://keybase.io/_/api/1.0/user/lookup.json?usernames=" ($user) "&ts=" ($ts) ($headers)) }}
@@ -123,7 +123,7 @@
                                 </a>
                               </div>
                               <div class="col">
-                                <span title="{{ ($status) }}"><i class="{{ ($icon) }} fa-fw"></i></span>
+                                <span data-bs-tooltip data-bs-title='{{ ($status) }}'><i class="{{ ($icon) }} fa-fw"></i></span>
                               </div>
                             </div>
                           </div>

@@ -151,7 +151,7 @@
                             {{ $name = ((index ((split $url.Host ".")) 0) | humanize) }}
                         {{ end }}
                         <div class="col">
-                          <a title="{{ ($name) }}" class="btn btn-light btn-social btn-lg" href="{{ (.url) }}" target="_blank" rel="noopener noreferrer">
+                          <a class="btn btn-light btn-social btn-lg" href="{{ (.url) }}" target="_blank" data-bs-tooltip data-bs-title='{{ ($name) }}' rel="noopener noreferrer">
                             <i class="{{ (.icon) }} fa-fw"></i>
                           </a>
                         </div>

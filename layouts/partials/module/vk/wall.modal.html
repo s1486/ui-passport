@@ -1,10 +1,10 @@
-{{ $id := ((.id) | default "") }}
-{{ $title := ((.title) | default "") }}
-{{ $token := ((.token) | default "") }}
-{{ $version := ((.version) | default "") }}
-{{ $owner := ((.owner) | default "") }}
+{{ $id := (.id) }}
+{{ $title := (.title) }}
+{{ $token := (.token) }}
+{{ $version := (.version) }}
+{{ $owner := (.owner) }}
 {{ $lang := ((.language) | default "ru") }}
-{{ $headers := ((.headers) | default "") }}
+{{ $headers := (.headers) }}
 {{ $ts := (now.Unix) }}
 
 {{ $wall := (getJSON "https://api.vk.com/method/wall.get?owner_id=-" ($owner) "&lang=" ($lang) "&access_token=" ($token) "&v=" ($version) "&ts=" ($ts) ($headers)) }}
@@ -15,7 +15,7 @@
     <div class="modal-dialog modal-dialog-scrollable modal-xl">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="label-vk-wall-{{ ($id) }}">{{ $title }} / {{ (i18n "vk.wall") }}</h5>
+          <h5 class="modal-title" id="label-vk-wall-{{ ($id) }}">{{ ($title) }} / {{ (i18n "vk.wall") }}</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label='{{ (i18n "close") }}'></button>
         </div>
         <div class="modal-body">
