@@ -60,12 +60,12 @@
                       </div>
                     </div>
                   </div>
-                  <div class="card-footer text-muted">
+                  <div class="card-footer text-muted small">
                     <ul class="list-inline m-0">
 
                         {{ with (.members_count) }}
-                          <li class="list-inline-item" data-bs-tooltip data-bs-title='{{ (i18n "tg.members") }}'>
-                            <a class="btn btn-light btn-sm text-muted" href="{{ ($url) }}" target="_blank" rel="noopener noreferrer" role="button">
+                          <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ (i18n "tg.members") }}'>
+                            <a class="text-muted" href="{{ ($url) }}" target="_blank" rel="noopener noreferrer" role="button">
                               <i class="fas fa-user fa-fw me-1"></i>
                                 {{ . }}
                             </a>

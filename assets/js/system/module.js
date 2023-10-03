@@ -7,6 +7,8 @@ import * as qrcode from './module/qrcode';
 import * as navbar from './module/navbar';
 import * as hljs from './module/hljs';
 import * as fancybox from './module/fancybox'
+import * as clipboard from './module/clipboard'
+import * as prevent_default from './module/prevent_default'
 
 export function init() {
   modal.init();
@@ -18,4 +20,6 @@ export function init() {
   navbar.init();
   hljs.init();
   fancybox.init();
+    clipboard.init();
+  prevent_default.init();
 }

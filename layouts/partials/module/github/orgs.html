@@ -45,47 +45,47 @@
                       </div>
                     </div>
                   </div>
-                  <div class="card-footer text-muted">
+                  <div class="card-footer text-muted small">
                     <ul class="list-inline m-0">
-                      <li class="list-inline-item" data-bs-tooltip data-bs-title='{{ i18n "github.repos" }}'>
-                        <a class="btn btn-light btn-sm text-muted" href="{{ ($org.html_url) }}" target="_blank" rel="noopener noreferrer" role="button">
+                      <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ i18n "github.repos" }}'>
+                        <a class="text-muted" href="{{ ($org.html_url) }}" target="_blank" rel="noopener noreferrer" role="button">
                           <i class="fas fa-book fa-fw me-1"></i>
                             {{ ($org.public_repos) }}
                         </a>
                       </li>
 
                         {{ with ($org.blog) }}
-                          <li class="list-inline-item" data-bs-tooltip data-bs-title='{{ i18n "github.blog" }}'>
+                          <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ i18n "github.blog" }}'>
                               {{ $url := (urls.Parse .) }}
                               {{ $scheme := "http://" }}
                               {{ if ($url.Scheme) }}{{ $scheme = "" }}{{ end }}
-                            <a class="btn btn-light btn-sm text-muted" href="{{ ($scheme) }}{{ . }}" target="_blank" rel="noopener noreferrer" role="button">
+                            <a class="text-muted" href="{{ ($scheme) }}{{ . }}" target="_blank" rel="noopener noreferrer" role="button">
                               <i class="fas fa-globe fa-fw"></i>
                             </a>
                           </li>
                         {{ end }}
 
                         {{ with ($org.twitter_username) }}
-                          <li class="list-inline-item" data-bs-tooltip data-bs-title='{{ i18n "github.twitter" }}'>
-                            <a class="btn btn-light btn-sm text-muted" href="https://twitter.com/{{ . }}" target="_blank" rel="noopener noreferrer" role="button">
+                          <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ i18n "github.twitter" }}'>
+                            <a class="text-muted" href="https://twitter.com/{{ . }}" target="_blank" rel="noopener noreferrer" role="button">
                               <i class="fab fa-twitter fa-fw"></i>
                             </a>
                           </li>
                         {{ end }}
 
                         {{ with ($org.email) }}
-                          <li class="list-inline-item" data-bs-tooltip data-bs-title='{{ i18n "github.email" }}'>
-                            <a class="btn btn-light btn-sm text-muted" href="mailto:{{ . }}" target="_blank" rel="noopener noreferrer" role="button">
+                          <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ i18n "github.email" }}'>
+                            <a class="text-muted" href="mailto:{{ . }}" target="_blank" rel="noopener noreferrer" role="button">
                               <i class="fas fa-envelope-open-text fa-fw"></i>
                             </a>
                           </li>
                         {{ end }}
 
                         {{ with ($org.login) }}
-                          <li class="list-inline-item" data-bs-tooltip data-bs-title='{{ i18n "github.events" }}'>
-                            <button type="button" class="btn btn-light btn-sm text-muted" data-bs-toggle="modal" data-bs-target="#modal-github-events-{{ ($id) }}" role="button">
+                          <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ i18n "github.events" }}'>
+                            <a class="text-muted" href="#" data-bs-toggle="modal" data-bs-target="#modal-github-events-{{ ($id) }}" role="button">
                               <i class="fas fa-bolt fa-fw"></i>
-                            </button>
+                            </a>
                           </li>
                         {{ end }}
 

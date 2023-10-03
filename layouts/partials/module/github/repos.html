@@ -43,12 +43,12 @@
                       </div>
                     </div>
                   </div>
-                  <div class="card-footer text-muted">
+                  <div class="card-footer text-muted small">
                     <ul class="list-inline m-0">
 
                         {{ if (.watchers_count) }}
-                          <li class="list-inline-item" data-bs-tooltip data-bs-title='{{ i18n "github.watchers" }}'>
-                            <a class="btn btn-light btn-sm text-muted" href="{{ (.html_url) }}/watchers" target="_blank" rel="noopener noreferrer" role="button">
+                          <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ i18n "github.watchers" }}'>
+                            <a class="text-muted" href="{{ (.html_url) }}/watchers" target="_blank" rel="noopener noreferrer" role="button">
                               <i class="fas fa-eye fa-fw me-1"></i>
                                 {{ (.watchers_count) }}
                             </a>
@@ -56,8 +56,8 @@
                         {{ end }}
 
                         {{ if (.stargazers_count) }}
-                          <li class="list-inline-item" data-bs-tooltip data-bs-title='{{ i18n "github.stargazers" }}'>
-                            <a class="btn btn-light btn-sm text-muted" href="{{ (.html_url) }}/stargazers" target="_blank" rel="noopener noreferrer" role="button">
+                          <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ i18n "github.stargazers" }}'>
+                            <a class="text-muted" href="{{ (.html_url) }}/stargazers" target="_blank" rel="noopener noreferrer" role="button">
                               <i class="fas fa-star fa-fw me-1"></i>
                                 {{ (.stargazers_count) }}
                             </a>
@@ -65,8 +65,8 @@
                         {{ end }}
 
                         {{ if (.forks_count) }}
-                          <li class="list-inline-item" data-bs-tooltip data-bs-title='{{ i18n "github.forks" }}'>
-                            <a class="btn btn-light btn-sm text-muted" href="{{ (.html_url) }}/network/members" target="_blank" rel="noopener noreferrer" role="button">
+                          <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ i18n "github.forks" }}'>
+                            <a class="text-muted" href="{{ (.html_url) }}/network/members" target="_blank" rel="noopener noreferrer" role="button">
                               <i class="fas fa-code-branch fa-fw me-1"></i>
                                 {{ (.forks_count) }}
                             </a>
@@ -75,8 +75,8 @@
 
                         {{ if (.license) }}
                             {{ $license := (getJSON (.license.url) ($headers)) }}
-                            <li class="list-inline-item" data-bs-tooltip data-bs-title='{{ i18n "github.license" }}'>
-                              <a class="btn btn-light btn-sm text-muted" href="{{ ($license.html_url) }}" target="_blank" rel="noopener noreferrer" role="button">
+                            <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ i18n "github.license" }}'>
+                              <a class="text-muted" href="{{ ($license.html_url) }}" target="_blank" rel="noopener noreferrer" role="button">
                                 <i class="fas fa-copyright fa-fw me-1"></i>
                                   {{ ($license.spdx_id) }}
                               </a>
@@ -84,10 +84,10 @@
                         {{ end }}
 
                         {{ with (.name) }}
-                          <li class="list-inline-item" data-bs-tooltip data-bs-title='{{ i18n "github.events" }}'>
-                            <button type="button" class="btn btn-light btn-sm text-muted" data-bs-toggle="modal" data-bs-target="#modal-github-events-{{ ($id) }}" role="button">
+                          <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ i18n "github.events" }}'>
+                            <a class="text-muted" href="#" data-bs-toggle="modal" data-bs-target="#modal-github-events-{{ ($id) }}" role="button">
                               <i class="fas fa-bolt fa-fw"></i>
-                            </button>
+                            </a>
                           </li>
                         {{ end }}
 

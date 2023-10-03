@@ -29,13 +29,13 @@
 
                   {{ with (.Param "info") }}
 
-                    <div class="card-footer text-muted">
+                    <div class="card-footer text-muted small">
                       <ul class="list-inline m-0">
 
                           {{ with (.experience) }}
                               {{ if (.date.start) }}
-                                <li class="list-inline-item" data-bs-tooltip data-bs-title='{{ i18n "experience.date" }}'>
-                                  <a class="btn btn-light btn-sm text-muted" role="button">
+                                <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ i18n "experience.date" }}'>
+                                  <a class="text-muted" href="#" data-fn="preventDefault">
                                     <i class="fas fa-user-clock fa-fw me-1"></i>
                                       {{ ((.date.start) | time.Format "2006/01/02") }}
                                     &mdash;
@@ -48,8 +48,8 @@
                                 </li>
                               {{ end }}
                               {{ if (.position) }}
-                                <li class="list-inline-item" data-bs-tooltip data-bs-title='{{ i18n "experience.position" }}'>
-                                  <a class="btn btn-light btn-sm text-muted" role="button">
+                                <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ i18n "experience.position" }}'>
+                                  <a class="text-muted" href="#" data-fn="preventDefault">
                                     <i class="fas fa-user-tie fa-fw me-1"></i>
                                       {{ (.position) }}
                                   </a>
@@ -59,16 +59,16 @@
 
                           {{ with (.portfolio) }}
                               {{ if (.date) }}
-                                <li class="list-inline-item" data-bs-tooltip data-bs-title='{{ i18n "portfolio.date" }}'>
-                                  <a class="btn btn-light btn-sm text-muted" role="button">
+                                <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ i18n "portfolio.date" }}'>
+                                  <a class="text-muted" href="#" data-fn="preventDefault">
                                     <i class="fas fa-calendar-alt fa-fw me-1"></i>
                                       {{ ((.date) | time.Format "2006/01/02") }}
                                   </a>
                                 </li>
                               {{ end }}
                               {{ if (.url) }}
-                                <li class="list-inline-item" data-bs-tooltip data-bs-title='{{ i18n "portfolio.url" }}'>
-                                  <a class="btn btn-light btn-sm text-muted" href="{{ (.url) }}" target="_blank" rel="noopener noreferrer" role="button">
+                                <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ i18n "portfolio.url" }}'>
+                                  <a class="text-muted" href="{{ (.url) }}" target="_blank" rel="noopener noreferrer" role="button">
                                     <i class="fas fa-globe fa-fw"></i>
                                   </a>
                                 </li>
