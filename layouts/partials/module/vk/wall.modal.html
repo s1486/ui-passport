@@ -22,13 +22,15 @@
           <ul class="list-group list-group-flush">
 
               {{ with (.response.items) }}
+
                   {{ range (first 10 .) }}
 
                     <li class="list-group-item">
                       <article>
                         <header>
                           <h4 class="text-center">
-                            <a href="https://vk.com/wall-{{ ($owner) }}_{{ (.id) }}" target="_blank" rel="noopener noreferrer">
+                            <a href="https://vk.com/wall-{{ ($owner) }}_{{ (.id) }}" target="_blank"
+                               rel="noopener noreferrer">
                                 {{ (((.date) | int) | time.Format "2006/01/02 15:04:05 MST") }}
                             </a>
                           </h4>
@@ -40,6 +42,7 @@
                     </li>
 
                   {{ end }}
+
               {{ end }}
 
           </ul>

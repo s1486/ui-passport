@@ -48,7 +48,8 @@
               <div class="col">
                 <article class="card h-100">
                   <h5 class="card-header clearfix">
-                    <a href="{{ $url }}" target="_blank" rel="noopener noreferrer">{{ (.title) }}</a>
+                    <a href="{{ $url }}" target="_blank"
+                       rel="noopener noreferrer">{{ (.title) }}</a>
                     <span class="badge bg-secondary float-end">{{ (.type) }}</span>
                   </h5>
                   <div class="row g-0 h-100">
@@ -65,7 +66,8 @@
 
                         {{ with (.members_count) }}
                           <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ (i18n "tg.members") }}'>
-                            <a class="text-muted" href="{{ ($url) }}" target="_blank" rel="noopener noreferrer" role="button">
+                            <a class="text-muted" href="{{ ($url) }}" target="_blank"
+                               rel="noopener noreferrer" role="button">
                               <i class="fas fa-user fa-fw me-1"></i>
                                 {{ . }}
                             </a>

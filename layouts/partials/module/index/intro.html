@@ -57,7 +57,8 @@
                         <div class="row">
                           <div class="col-4">{{ (i18n "location") }}</div>
                           <div class="col">
-                            <a href="https://www.google.ru/maps/place/{{ . }}" target="_blank" rel="noopener noreferrer">{{ . }}</a>
+                            <a href="https://www.google.ru/maps/place/{{ . }}" target="_blank"
+                               rel="noopener noreferrer" role="button">{{ . }}</a>
                           </div>
                         </div>
                       </div>
@@ -74,7 +75,8 @@
                                     {{ $scheme := "http://" }}
                                     {{ if ($url.Scheme) }}{{ $scheme = "" }}{{ end }}
                                     <li>
-                                      <a href="{{ ($scheme) }}{{ (.url) }}" target="_blank" rel="noopener noreferrer">{{ (.name) }}</a>
+                                      <a href="{{ ($scheme) }}{{ (.url) }}" target="_blank"
+                                         rel="noopener noreferrer" role="button">{{ (.name) }}</a>
                                     </li>
                                 {{ end }}
                             </ul>
@@ -128,7 +130,8 @@
                                     {{ $scheme := "http://" }}
                                     {{ if ($url.Scheme) }}{{ $scheme = "" }}{{ end }}
                                     <li>
-                                      <a href="{{ ($scheme) }}{{ . }}" target="_blank" rel="noopener noreferrer">{{ . }}</a>
+                                      <a href="{{ ($scheme) }}{{ . }}" target="_blank"
+                                         rel="noopener noreferrer" role="button">{{ . }}</a>
                                     </li>
                                 {{ end }}
                             </ul>
@@ -151,7 +154,10 @@
                             {{ $name = ((index ((split $url.Host ".")) 0) | humanize) }}
                         {{ end }}
                         <div class="col">
-                          <a class="btn btn-light btn-social btn-lg" href="{{ (.url) }}" target="_blank" data-bs-tooltip data-bs-title='{{ ($name) }}' rel="noopener noreferrer">
+                          <a class="btn btn-light btn-social btn-lg" href="{{ (.url) }}" target="_blank"
+                             data-bs-tooltip data-bs-title='{{ ($name) }}'
+                             rel="noopener noreferrer"
+                             role="button">
                             <i class="{{ (.icon) }} fa-fw"></i>
                           </a>
                         </div>

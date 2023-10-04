@@ -49,7 +49,7 @@
                               {{ end }}
                               {{ if (.position) }}
                                 <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ i18n "experience.position" }}'>
-                                  <a class="text-muted" href="#" data-fn="preventDefault">
+                                  <a class="text-muted" href="#" data-fn="preventDefault" role="button">
                                     <i class="fas fa-user-tie fa-fw me-1"></i>
                                       {{ (.position) }}
                                   </a>
@@ -60,7 +60,7 @@
                           {{ with (.portfolio) }}
                               {{ if (.date) }}
                                 <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ i18n "portfolio.date" }}'>
-                                  <a class="text-muted" href="#" data-fn="preventDefault">
+                                  <a class="text-muted" href="#" data-fn="preventDefault" role="button">
                                     <i class="fas fa-calendar-alt fa-fw me-1"></i>
                                       {{ ((.date) | time.Format "2006/01/02") }}
                                   </a>
