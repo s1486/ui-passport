@@ -129,9 +129,9 @@ requisites:
           name: { other: "Beneficiary Name" }
           account: { other: "Beneficiary Account" }
           bank: { other: "Beneficiary Bank" }
-          bic: { other: "BIC" }
-          inn: { other: "ITN" }
-          kpp: { other: "IEC" }
+        bic: { other: "BIC" }
+        inn: { other: "ITN" }
+        kpp: { other: "IEC" }
         correspondent:
           account: { other: "Correspondent Account" }
         target: { other: "Payment Details" }

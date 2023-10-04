@@ -35,7 +35,7 @@
                           {{ with (.experience) }}
                               {{ if (.date.start) }}
                                 <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ i18n "experience.date" }}'>
-                                  <a class="text-muted" href="#" data-fn="preventDefault">
+                                  <a class="text-muted" href="#" data-fn="preventDefault" role="button">
                                     <i class="fas fa-user-clock fa-fw me-1"></i>
                                       {{ ((.date.start) | time.Format "2006/01/02") }}
                                     &mdash;
