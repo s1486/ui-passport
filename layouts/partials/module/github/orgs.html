@@ -46,10 +46,10 @@
                       </div>
                     </div>
                   </div>
-                  <div class="card-footer text-muted small">
+                  <div class="card-footer text-body-secondary small">
                     <ul class="list-inline m-0">
                       <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ i18n "github.repos" }}'>
-                        <a class="text-muted" href="{{ ($org.html_url) }}" target="_blank"
+                        <a class="text-body-secondary" href="{{ ($org.html_url) }}" target="_blank"
                            rel="noopener noreferrer" role="button">
                           <i class="fas fa-book fa-fw me-1"></i>
                             {{ ($org.public_repos) }}
@@ -61,7 +61,7 @@
                               {{ $url := (urls.Parse .) }}
                               {{ $scheme := "http://" }}
                               {{ if ($url.Scheme) }}{{ $scheme = "" }}{{ end }}
-                            <a class="text-muted" href="{{ ($scheme) }}{{ . }}" target="_blank"
+                            <a class="text-body-secondary" href="{{ ($scheme) }}{{ . }}" target="_blank"
                                rel="noopener noreferrer" role="button">
                               <i class="fas fa-globe fa-fw"></i>
                             </a>
@@ -70,7 +70,7 @@
 
                         {{ with ($org.twitter_username) }}
                           <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ i18n "github.twitter" }}'>
-                            <a class="text-muted" href="https://twitter.com/{{ . }}" target="_blank"
+                            <a class="text-body-secondary" href="https://twitter.com/{{ . }}" target="_blank"
                                rel="noopener noreferrer" role="button">
                               <i class="fab fa-twitter fa-fw"></i>
                             </a>
@@ -79,7 +79,7 @@
 
                         {{ with ($org.email) }}
                           <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ i18n "github.email" }}'>
-                            <a class="text-muted" href="mailto:{{ . }}" target="_blank"
+                            <a class="text-body-secondary" href="mailto:{{ . }}" target="_blank"
                                rel="noopener noreferrer" role="button">
                               <i class="fas fa-envelope-open-text fa-fw"></i>
                             </a>
@@ -88,7 +88,7 @@
 
                         {{ with ($org.login) }}
                           <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ i18n "github.events" }}'>
-                            <a class="text-muted" href="#"
+                            <a class="text-body-secondary" href="#"
                                data-bs-toggle="modal"
                                data-bs-target="#modal-github-events-{{ ($id) }}"
                                role="button">

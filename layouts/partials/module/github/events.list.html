@@ -1,5 +1,5 @@
 {{ $type := (.type) }}
-{{ $icon := ("fas fa-bolt text-muted") }}
+{{ $icon := ("fas fa-bolt text-body-secondary") }}
 {{ $url := (printf "%s" (.repo.name)) }}
 
 {{ if (eq ($type) ("CreateEvent")) }}
@@ -7,15 +7,15 @@
 {{ end }}
 
 {{ if (eq ($type) ("ForkEvent")) }}
-    {{ $icon = ("fas fa-code-branch text-muted") }}
+    {{ $icon = ("fas fa-code-branch text-body-secondary") }}
 {{ end }}
 
 {{ if (eq ($type) ("WatchEvent")) }}
-    {{ $icon = ("fas fa-eye text-muted") }}
+    {{ $icon = ("fas fa-eye text-body-secondary") }}
 {{ end }}
 
 {{ if (eq ($type) ("IssuesEvent")) }}
-    {{ $icon = ("far fa-dot-circle text-muted") }}
+    {{ $icon = ("far fa-dot-circle text-body-secondary") }}
     {{ $url = (.payload.issue.html_url) }}
 {{ end }}
 
