@@ -2,7 +2,7 @@
 {{ $ts := (now.Unix) }}
 {{ $headers := (dict
 "User-Agent" (site.Data.api.user_agent)
-"Authorization" (printf "token %s" ((site.Data.api.github.token) | base64Decode))
+"Authorization" (printf "token %s" (((site.Data.api.github.token) | base64Decode) | base64Decode))
 ) }}
 
 {{ $repos := (getJSON "https://api.github.com/users/" ($user) "/repos?ts=" ($ts) ($headers)) }}
