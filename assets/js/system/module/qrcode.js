@@ -1,18 +1,19 @@
-export function init() {
+export const init = () => {
   generator('[data-fn*="qrcode"]');
 }
 
-function generator($selector) {
+const generator = ($selector) => {
   const $el = document.querySelectorAll($selector);
+  const $len = $el.length;
   let $text;
 
-  $el.forEach(($i) => {
-    $text = $i.getAttribute('data-qr-text');
-    _qrcode($i, $text);
-  });
+  for (let $i = 0; $i < $len; ++$i) {
+    $text = $el[$i].getAttribute('data-qr-text');
+    _qrcode($el[$i], $text);
+  }
 }
 
-function _qrcode($selector, $text, $size = 128) {
+const _qrcode = ($selector, $text, $size = 128) => {
   let $options;
 
   $options = {
