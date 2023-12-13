@@ -1,25 +1,15 @@
 {{ define "main" }}
 
-  <div class="section py-5">
-    <div class="container">
+    {{ (partial "breadcrumb" .) }}
 
-        {{ (partial "breadcrumb" .) }}
-
-        {{ if (site.Data.api.keybase.user) }}
-
-            {{ (partial "module/keybase/card" .) }}
-
-        {{ else }}
-
-            {{ (partial "function/alert" (dict
-            "type" "danger"
-            "icon" "fab fa-keybase"
-            "msg" (i18n "alert.keybase.not_found")
-            )) }}
-
-        {{ end }}
-
-    </div>
-  </div>
+    {{ if (site.Data.api.keybase.user) }}
+        {{ (partial "module/keybase/card" .) }}
+    {{ else }}
+        {{ (partial "function/alert" (dict
+        "type" "danger"
+        "icon" "fab fa-keybase"
+        "msg" (i18n "alert.keybase.not_found")
+        )) }}
+    {{ end }}
 
 {{ end }}

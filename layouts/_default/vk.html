@@ -1,25 +1,15 @@
 {{ define "main" }}
 
-  <div class="section py-5">
-    <div class="container">
+    {{ (partial "breadcrumb" .) }}
 
-        {{ (partial "breadcrumb" .) }}
-
-        {{ if (and (site.Data.api.vk.token) (site.Data.api.vk.app.id)) }}
-
-            {{ (partial "module/vk/groups" .) }}
-
-        {{ else }}
-
-            {{ (partial "function/alert" (dict
-            "type" "danger"
-            "icon" "fab fa-vk"
-            "msg" (i18n "alert.vk.not_found")
-            )) }}
-
-        {{ end }}
-
-    </div>
-  </div>
+    {{ if (and (site.Data.api.vk.token) (site.Data.api.vk.app.id)) }}
+        {{ (partial "module/vk/groups" .) }}
+    {{ else }}
+        {{ (partial "function/alert" (dict
+        "type" "danger"
+        "icon" "fab fa-vk"
+        "msg" (i18n "alert.vk.not_found")
+        )) }}
+    {{ end }}
 
 {{ end }}

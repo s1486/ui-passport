@@ -1,9 +1,5 @@
 {{ define "main" }}
 
     {{ (partial "module/index/intro" .) }}
-    {{ (partial "module/index/blocks" (dict "context" . "type" "gpg")) }}
-    {{ (partial "module/index/blocks" (dict "context" . "type" "expertise")) }}
-    {{ (partial "module/index/blocks" (dict "context" . "type" "experience")) }}
-    {{ (partial "module/index/blocks" (dict "context" . "type" "portfolio")) }}
 
 {{ end }}

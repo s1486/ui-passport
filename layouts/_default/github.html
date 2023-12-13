@@ -1,45 +1,21 @@
 {{ define "main" }}
 
+    {{ (partial "breadcrumb" .) }}
+
     {{ if (and (site.Data.api.github.token) (site.Data.api.github.user)) }}
-
-      <div class="section py-5">
-        <div class="container">
-
-            {{ (partial "breadcrumb" .) }}
-            {{ (partial "module/github/events" .) }}
-
-        </div>
-      </div>
-      <div class="section py-5">
-        <div class="container">
-
+        {{ (partial "module/github/events" .) }}
+        <div class="section pt-5">
             {{ (partial "module/github/orgs" .) }}
-
         </div>
-      </div>
-      <div class="section py-5">
-        <div class="container">
-
+        <div class="section pt-5">
             {{ (partial "module/github/repos" .) }}
-
         </div>
-      </div>
-
     {{ else }}
-
-      <div class="section py-5">
-        <div class="container">
-
-            {{ (partial "breadcrumb" .) }}
-            {{ (partial "function/alert" (dict
-            "type" "danger"
-            "icon" "fab fa-github"
-            "msg" (i18n "alert.github.not_found")
-            )) }}
-
-        </div>
-      </div>
-
+        {{ (partial "function/alert" (dict
+        "type" "danger"
+        "icon" "fab fa-github"
+        "msg" (i18n "alert.github.not_found")
+        )) }}
     {{ end }}
 
 {{ end }}

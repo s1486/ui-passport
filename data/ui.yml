@@ -26,10 +26,10 @@ network:
 
 fonts:
   external:
-    - 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap'
-    - 'https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap'
     - 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap'
     - 'https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;0,700;1,400;1,700&display=swap'
+    - 'https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap'
+    - 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap'
   internal:
 
 # -------------------------------------------------------------------------------------------------------------------- #
@@ -46,8 +46,6 @@ styles:
       - 'css/vendor/bootstrap/bootstrap.min.css'
       # https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.css
       - 'css/vendor/fancyapps/fancybox.min.css'
-      # https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/
-      - 'css/vendor/highlight/atom-one-dark.min.css'
   system:
     internal:
       - 'css/system.scss'
@@ -70,8 +68,6 @@ scripts:
       - 'js/vendor/fancyapps/fancybox.min.js'
       # https://cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js
       - 'js/vendor/clipboard/clipboard.min.js'
-      # https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js
-      - 'js/vendor/highlight/highlight.min.js'
       # https://cdn.jsdelivr.net/npm/easyqrcodejs@4/dist/easy.qrcode.min.js
       - 'js/vendor/qrcode/qrcode.min.js'
   system:

@@ -1,25 +1,15 @@
 {{ define "main" }}
 
-  <div class="section py-5">
-    <div class="container">
+    {{ (partial "breadcrumb" .) }}
 
-        {{ if (and (site.Data.api.telegram.token) (site.Data.api.telegram.chat.name)) }}
-
-            {{ (partial "breadcrumb" .) }}
-            {{ (partial "module/telegram/channels" .) }}
-
-        {{ else }}
-
-            {{ (partial "breadcrumb" .) }}
-            {{ (partial "function/alert" (dict
-            "type" "danger"
-            "icon" "fab fa-telegram-plane"
-            "msg" (i18n "alert.telegram.not_found")
-            )) }}
-
-        {{ end }}
-
-    </div>
-  </div>
+    {{ if (and (site.Data.api.telegram.token) (site.Data.api.telegram.chat.name)) }}
+        {{ (partial "module/telegram/channels" .) }}
+    {{ else }}
+        {{ (partial "function/alert" (dict
+        "type" "danger"
+        "icon" "fab fa-telegram-plane"
+        "msg" (i18n "alert.telegram.not_found")
+        )) }}
+    {{ end }}
 
 {{ end }}
