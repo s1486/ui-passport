@@ -19,10 +19,10 @@
                     <ul class="list-inline m-0">
                         {{ if (.date) }}
                           <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ i18n "portfolio.date" }}'>
-                            <a class="text-body-secondary" href="#" data-fn="preventDefault" role="button">
+                            <div class="text-body-secondary">
                               <i class="fas fa-calendar-alt fa-fw me-1"></i>
                                 {{ ((.date) | time.Format "2006/01/02") }}
-                            </a>
+                            </div>
                           </li>
                         {{ end }}
                         {{ if (.url) }}

@@ -22,7 +22,7 @@
                     <ul class="list-inline m-0">
                         {{ if (.date.start) }}
                           <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ i18n "experience.date" }}'>
-                            <a class="text-body-secondary" href="#" data-fn="preventDefault" role="button">
+                            <div class="text-body-secondary">
                               <i class="fas fa-user-clock fa-fw me-1"></i>
                                 {{ ((.date.start) | time.Format "2006/01/02") }}
                               &mdash;
@@ -31,15 +31,15 @@
                                 {{ else }}
                                   <i class="fas fa-infinity fa-fw"></i>
                                 {{ end }}
-                            </a>
+                            </div>
                           </li>
                         {{ end }}
                         {{ if (.position) }}
                           <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ i18n "experience.position" }}'>
-                            <a class="text-body-secondary" href="#" data-fn="preventDefault" role="button">
+                            <div class="text-body-secondary">
                               <i class="fas fa-user-tie fa-fw me-1"></i>
                                 {{ (.position) }}
-                            </a>
+                            </div>
                           </li>
                         {{ end }}
                     </ul>
