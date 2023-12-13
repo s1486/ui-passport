@@ -17,32 +17,30 @@
                     {{ (.Render "summary") }}
                 </div>
               </div>
-                {{ with (.Param "info") }}
+                {{ with (.Params.experience) }}
                   <div class="card-footer text-body-secondary small">
                     <ul class="list-inline m-0">
-                        {{ with (.experience) }}
-                            {{ if (.date.start) }}
-                              <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ i18n "experience.date" }}'>
-                                <a class="text-body-secondary" href="#" data-fn="preventDefault" role="button">
-                                  <i class="fas fa-user-clock fa-fw me-1"></i>
-                                    {{ ((.date.start) | time.Format "2006/01/02") }}
-                                  &mdash;
-                                    {{ if (.date.stop) }}
-                                        {{ ((.date.stop) | time.Format "2006/01/02") }}
-                                    {{ else }}
-                                      <i class="fas fa-infinity fa-fw"></i>
-                                    {{ end }}
-                                </a>
-                              </li>
-                            {{ end }}
-                            {{ if (.position) }}
-                              <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ i18n "experience.position" }}'>
-                                <a class="text-body-secondary" href="#" data-fn="preventDefault" role="button">
-                                  <i class="fas fa-user-tie fa-fw me-1"></i>
-                                    {{ (.position) }}
-                                </a>
-                              </li>
-                            {{ end }}
+                        {{ if (.date.start) }}
+                          <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ i18n "experience.date" }}'>
+                            <a class="text-body-secondary" href="#" data-fn="preventDefault" role="button">
+                              <i class="fas fa-user-clock fa-fw me-1"></i>
+                                {{ ((.date.start) | time.Format "2006/01/02") }}
+                              &mdash;
+                                {{ if (.date.stop) }}
+                                    {{ ((.date.stop) | time.Format "2006/01/02") }}
+                                {{ else }}
+                                  <i class="fas fa-infinity fa-fw"></i>
+                                {{ end }}
+                            </a>
+                          </li>
+                        {{ end }}
+                        {{ if (.position) }}
+                          <li class="list-inline-item me-3" data-bs-tooltip data-bs-title='{{ i18n "experience.position" }}'>
+                            <a class="text-body-secondary" href="#" data-fn="preventDefault" role="button">
+                              <i class="fas fa-user-tie fa-fw me-1"></i>
+                                {{ (.position) }}
+                            </a>
+                          </li>
                         {{ end }}
                     </ul>
                   </div>

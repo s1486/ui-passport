@@ -1,3 +1,13 @@
+{{- /*
+Image in markdown.
+
+@returns {template.HTML}
+
+@examples
+
+  ![Text](https://gohugo.io/images/hugo-logo-wide.svg "Title")
+*/ -}}
+
 {{- $title := ((.Title) | default "") -}}
 {{- $alt := ((.Text) | default "") -}}
 {{- $src := ((.Destination) | safeURL) -}}

@@ -11,6 +11,7 @@ egg: { other: "Oops!" }
 email: { other: "E-mail" }
 languages: { other: "Языки" }
 location: { other: "Местонахождение" }
+logo: { other: 'Логотип' }
 name: { other: "Имя" }
 nickname: { other: "Псевдоним" }
 organization: { other: "Организация" }
@@ -19,6 +20,7 @@ qrcode: { other: "QR Код" }
 site: { other: "Сайт" }
 social_networks:  { other: "Социальные сети" }
 tags: { other: "Теги" }
+toggle_navigation: { other: 'Переключить навигацию' }
 
 # -------------------------------------------------------------------------------------------------------------------- #
 # Expertise.

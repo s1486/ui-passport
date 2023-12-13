@@ -11,6 +11,7 @@ egg: { other: "Oops!" }
 email: { other: "E-mail" }
 languages: { other: "Languages" }
 location: { other: "Location" }
+logo: { other: 'Logotype' }
 name: { other: "Name" }
 nickname: { other: "Nickname" }
 organization: { other: "Organization" }
@@ -19,6 +20,7 @@ qrcode: { other: "QR Code" }
 site: { other: "Site" }
 social_networks: { other: "Social networks" }
 tags: { other: "Tags" }
+toggle_navigation: { other: 'Toggle navigation' }
 
 # -------------------------------------------------------------------------------------------------------------------- #
 # Expertise.
