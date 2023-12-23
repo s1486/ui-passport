@@ -45,87 +45,97 @@
                     </div>
                   {{ end }}
                   {{ with (index (site.Data.profile.location) (.Lang)) }}
-                    <div class="col">
-                      <div class="row">
-                        <div class="col-4">{{ (i18n "location") }}</div>
+                      {{ if (not (eq (index . 0) "")) }}
                         <div class="col">
-                          <a href="https://www.google.ru/maps/place/{{ . }}" target="_blank"
-                             rel="noopener noreferrer" role="button">{{ . }}</a>
+                          <div class="row">
+                            <div class="col-4">{{ (i18n "location") }}</div>
+                            <div class="col">
+                              <a href="https://www.google.ru/maps/place/{{ . }}" target="_blank"
+                                 rel="noopener noreferrer" role="button">{{ . }}</a>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
+                      {{ end }}
                   {{ end }}
                   {{ with (index (site.Data.profile.organization) (.Lang)) }}
-                    <div class="col">
-                      <div class="row">
-                        <div class="col-4">{{ (i18n "organization") }}</div>
+                      {{ if (not (eq (index . 0) "")) }}
                         <div class="col">
-                          <ul class="list-unstyled m-0">
-                              {{ range . }}
-                                  {{ $url := (urls.Parse .url) }}
-                                  {{ $scheme := "http://" }}
-                                  {{ if ($url.Scheme) }}{{ $scheme = "" }}{{ end }}
-                                  <li>
-                                    <a href="{{ ($scheme) }}{{ (.url) }}" target="_blank"
-                                       rel="noopener noreferrer" role="button">{{ (.name) }}</a>
-                                  </li>
-                              {{ end }}
-                          </ul>
+                          <div class="row">
+                            <div class="col-4">{{ (i18n "organization") }}</div>
+                            <div class="col">
+                              <ul class="list-unstyled m-0">
+                                  {{ range . }}
+                                      {{ $url := (urls.Parse .url) }}
+                                      {{ $scheme := "http://" }}
+                                      {{ if ($url.Scheme) }}{{ $scheme = "" }}{{ end }}
+                                      <li>
+                                        <a href="{{ ($scheme) }}{{ (.url) }}" target="_blank"
+                                           rel="noopener noreferrer" role="button">{{ (.name) }}</a>
+                                      </li>
+                                  {{ end }}
+                              </ul>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
+                      {{ end }}
                   {{ end }}
                   {{ with (site.Data.contacts.email) }}
-                    <div class="col">
-                      <div class="row">
-                        <div class="col-4">{{ (i18n "email") }}</div>
+                      {{ if (not (eq (index . 0) "")) }}
                         <div class="col">
-                          <ul class="list-unstyled m-0">
-                              {{ range . }}
-                                <li>
-                                    {{ (partial "function/email" (dict "email" .)) }}
-                                </li>
-                              {{ end }}
-                          </ul>
+                          <div class="row">
+                            <div class="col-4">{{ (i18n "email") }}</div>
+                            <div class="col">
+                              <ul class="list-unstyled m-0">
+                                  {{ range . }}
+                                    <li>
+                                        {{ (partial "function/email" (dict "email" .)) }}
+                                    </li>
+                                  {{ end }}
+                              </ul>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
+                      {{ end }}
                   {{ end }}
                   {{ with (site.Data.contacts.phone) }}
-                    <div class="col">
-                      <div class="row">
-                        <div class="col-4">{{ (i18n "phone") }}</div>
+                      {{ if (not (eq (index . 0) "")) }}
                         <div class="col">
-                          <ul class="list-unstyled m-0">
-                              {{ range . }}
-                                <li>
-                                    {{ (partial "function/phone" (dict "phone" .)) }}
-                                </li>
-                              {{ end }}
-                          </ul>
+                          <div class="row">
+                            <div class="col-4">{{ (i18n "phone") }}</div>
+                            <div class="col">
+                              <ul class="list-unstyled m-0">
+                                  {{ range . }}
+                                    <li>
+                                        {{ (partial "function/phone" (dict "phone" .)) }}
+                                    </li>
+                                  {{ end }}
+                              </ul>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
+                      {{ end }}
                   {{ end }}
                   {{ with (site.Data.contacts.site) }}
-                    <div class="col">
-                      <div class="row">
-                        <div class="col-4">{{ (i18n "site") }}</div>
+                      {{ if (not (eq (index . 0) "")) }}
                         <div class="col">
-                          <ul class="list-unstyled m-0">
-                              {{ range . }}
-                                  {{ $url := (urls.Parse .) }}
-                                  {{ $scheme := "http://" }}
-                                  {{ if ($url.Scheme) }}{{ $scheme = "" }}{{ end }}
-                                  <li>
-                                    <a href="{{ ($scheme) }}{{ . }}" target="_blank"
-                                       rel="noopener noreferrer" role="button">{{ . }}</a>
-                                  </li>
-                              {{ end }}
-                          </ul>
+                          <div class="row">
+                            <div class="col-4">{{ (i18n "site") }}</div>
+                            <div class="col">
+                              <ul class="list-unstyled m-0">
+                                  {{ range . }}
+                                      {{ $url := (urls.Parse .) }}
+                                      {{ $scheme := "http://" }}
+                                      {{ if ($url.Scheme) }}{{ $scheme = "" }}{{ end }}
+                                      <li>
+                                        <a href="{{ ($scheme) }}{{ . }}" target="_blank"
+                                           rel="noopener noreferrer" role="button">{{ . }}</a>
+                                      </li>
+                                  {{ end }}
+                              </ul>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
+                      {{ end }}
                   {{ end }}
               </div>
             </div>
