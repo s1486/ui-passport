@@ -21,7 +21,7 @@
                             {{ with (index (site.Data.profile.fullname) (.Lang)) }}
                               <div class="col">
                                 <div class="row">
-                                  <div class="col-4">{{ (i18n "name") }}</div>
+                                  <div class="col">{{ (i18n "name") }}</div>
                                   <div class="col">{{ . }}</div>
                                 </div>
                               </div>
@@ -33,7 +33,7 @@
                                 {{ end }}
                                 <div class="col">
                                   <div class="row">
-                                    <div class="col-4">{{ (i18n "nickname") }}</div>
+                                    <div class="col">{{ (i18n "nickname") }}</div>
                                     <div class="col">{{ ($nickname) }}</div>
                                   </div>
                                 </div>
@@ -41,7 +41,7 @@
                             {{ with (site.Data.profile.birthday) }}
                               <div class="col">
                                 <div class="row">
-                                  <div class="col-4">{{ (i18n "birthday") }}</div>
+                                  <div class="col">{{ (i18n "birthday") }}</div>
                                   <div class="col">
                                       {{ (printf "%02d" ((time .).Month)) }} /
                                       {{ (printf "%02d" ((time .).Day)) }}
@@ -53,7 +53,7 @@
                                 {{ if (not (eq (index . 0) "")) }}
                                   <div class="col">
                                     <div class="row">
-                                      <div class="col-4">{{ (i18n "location") }}</div>
+                                      <div class="col">{{ (i18n "location") }}</div>
                                       <div class="col">
                                         <a href="https://www.google.ru/maps/place/{{ . }}" target="_blank"
                                            rel="noopener noreferrer" role="button">{{ . }}</a>
@@ -66,7 +66,7 @@
                                 {{ if (not (eq (index . 0) "")) }}
                                   <div class="col">
                                     <div class="row">
-                                      <div class="col-4">{{ (i18n "organization") }}</div>
+                                      <div class="col">{{ (i18n "organization") }}</div>
                                       <div class="col">
                                         <ul class="list-unstyled m-0">
                                             {{ range . }}
@@ -88,7 +88,7 @@
                                 {{ if (not (eq (index . 0) "")) }}
                                   <div class="col">
                                     <div class="row">
-                                      <div class="col-4">{{ (i18n "email") }}</div>
+                                      <div class="col">{{ (i18n "email") }}</div>
                                       <div class="col">
                                         <ul class="list-unstyled m-0">
                                             {{ range . }}
@@ -106,7 +106,7 @@
                                 {{ if (not (eq (index . 0) "")) }}
                                   <div class="col">
                                     <div class="row">
-                                      <div class="col-4">{{ (i18n "phone") }}</div>
+                                      <div class="col">{{ (i18n "phone") }}</div>
                                       <div class="col">
                                         <ul class="list-unstyled m-0">
                                             {{ range . }}
@@ -124,7 +124,7 @@
                                 {{ if (not (eq (index . 0) "")) }}
                                   <div class="col">
                                     <div class="row">
-                                      <div class="col-4">{{ (i18n "site") }}</div>
+                                      <div class="col">{{ (i18n "site") }}</div>
                                       <div class="col">
                                         <ul class="list-unstyled m-0">
                                             {{ range . }}
