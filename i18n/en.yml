@@ -158,6 +158,10 @@ alert:
         Information from VK not found.
         API key may not have been set or group ID may not be specified.
   keybase:
+    not_found:
+      other: >
+        Information from KeyBase not found.
+        API key may not have been set or username may not be specified.
     info:
       other: >
         Information is synchronized with Keybase server.
