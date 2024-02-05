@@ -32,7 +32,7 @@
                     <div class="col">
                       <div class="card">
                         <div class="card-body">
-                          <div class="row row-cols-2 g-1">
+                          <div class="row row-cols-1 row-cols-lg-2 g-2">
                               {{ with (.name) }}
                                 <div class="col">{{ (i18n "keyoxide.name") }}</div>
                                 <div class="col">
@@ -58,38 +58,38 @@
                     <div class="col">
                       <div class="card">
                         <div class="card-body">
-                          <div class="row row-cols-2 g-1">
-                              {{ range (.claims) }}
-                                  {{ $icon := ("fas fa-exclamation-triangle text-danger") }}
-                                  {{ $status := (slice 200 201) }}
-                                  {{ $statusText := (i18n "keyoxide.not_confirmed") }}
-                                  {{ $providerName := (.display.serviceProviderName) }}
-                                  {{ $profileName := (.display.profileName) }}
-                                  {{ $profileURL := (.display.profileUrl) }}
+                            {{ range (.claims) }}
+                                {{ $icon := ("fas fa-exclamation-triangle text-danger") }}
+                                {{ $status := (slice 200 201) }}
+                                {{ $statusText := (i18n "keyoxide.not_confirmed") }}
+                                {{ $providerName := (.display.serviceProviderName) }}
+                                {{ $profileName := (.display.profileName) }}
+                                {{ $profileURL := (.display.profileUrl) }}
 
-                                  {{ if (in ($status) (int (.status))) }}
-                                      {{ $icon = ("fas fa-check-circle text-success") }}
-                                      {{ $statusText = (i18n "keyoxide.confirmed") }}
-                                  {{ end }}
+                                {{ if (in ($status) (int (.status))) }}
+                                    {{ $icon = ("fas fa-check-circle text-success") }}
+                                    {{ $statusText = (i18n "keyoxide.confirmed") }}
+                                {{ end }}
 
-                                  {{ if (eq ($providerName) "mastodon") }}
-                                      {{ $providerName = ((urls.Parse ($profileURL)).Hostname) }}
-                                      {{ $profileName = (trim ((urls.Parse ($profileURL)).Path) "/") }}
-                                  {{ end }}
+                                {{ if (eq ($providerName) "mastodon") }}
+                                    {{ $providerName = ((urls.Parse ($profileURL)).Hostname) }}
+                                    {{ $profileName = (trim ((urls.Parse ($profileURL)).Path) "/") }}
+                                {{ end }}
 
-                                  {{ if (in ($status) (int (.status))) }}
+                                {{ if (in ($status) (int (.status))) }}
+                                  <div class="row py-1">
                                     <div class="col">
                                       <span class="text-secondary">{{ ($providerName) }} /</span>
                                       <a href="{{ ($profileURL) }}" target="_blank" rel="noopener noreferrer">
                                           {{ ($profileName) }}
                                       </a>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-2 col-lg-6">
                                       <span data-bs-tooltip data-bs-title="{{ ($statusText) }}"><i class="{{ ($icon) }} fa-fw"></i></span>
                                     </div>
-                                  {{ end }}
-                              {{ end }}
-                          </div>
+                                  </div>
+                                {{ end }}
+                            {{ end }}
                         </div>
                       </div>
                     </div>

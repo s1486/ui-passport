@@ -14,7 +14,7 @@
             <div class="col">
               <div class="card">
                 <div class="card-body">
-                  <div class="row row-cols-2 g-1">
+                  <div class="row row-cols-2 g-2">
                       {{ with (index (site.Data.profile.fullname) (.Lang)) }}
                         <div class="col">{{ (i18n "name") }}</div>
                         <div class="col">{{ . }}</div>
@@ -111,7 +111,7 @@
                 <div class="col">
                   <div class="card">
                     <div class="card-body">
-                      <div class="row row-cols-auto g-1">
+                      <div class="row row-cols-auto g-2">
                           {{ range . }}
                               {{ $url := (urls.Parse .url) }}
                               {{ $name := "" }}
@@ -138,7 +138,7 @@
                 <div class="col">
                   <div class="card">
                     <div class="card-body">
-                      <div class="row row-cols-auto g-1">
+                      <div class="row row-cols-auto g-2">
                           {{ range . }}
                               {{ $url := (urls.Parse .url) }}
                               {{ $name := "" }}

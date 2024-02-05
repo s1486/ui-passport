@@ -26,7 +26,7 @@
                 <div class="col">
                   <div class="card">
                     <div class="card-body">
-                      <div class="row row-cols-2 g-1">
+                      <div class="row row-cols-1 row-cols-lg-2 g-2">
                           {{ with (.basics.username) }}
                             <div class="col">{{ (i18n "keybase.name") }}</div>
                             <div class="col">
@@ -58,28 +58,28 @@
                 <div class="col">
                   <div class="card">
                     <div class="card-body">
-                      <div class="row row-cols-2 g-1">
-                          {{ range (.proofs_summary.all) }}
-                              {{ $icon := ("fas fa-exclamation-triangle text-danger") }}
-                              {{ $status := (i18n "keybase.not_confirmed") }}
-                              {{ if (.state) }}
-                                  {{ $icon = ("fas fa-check-circle text-success") }}
-                                  {{ $status = (i18n "keybase.confirmed") }}
-                              {{ end }}
-                              {{ $url_text := ((.proof_type) | humanize) }}
-                              {{ if (eq (.proof_type) ("dns")) }}
-                                  {{ $url_text = (.nametag) }}
-                              {{ end }}
+                        {{ range (.proofs_summary.all) }}
+                            {{ $icon := ("fas fa-exclamation-triangle text-danger") }}
+                            {{ $status := (i18n "keybase.not_confirmed") }}
+                            {{ if (.state) }}
+                                {{ $icon = ("fas fa-check-circle text-success") }}
+                                {{ $status = (i18n "keybase.confirmed") }}
+                            {{ end }}
+                            {{ $url_text := ((.proof_type) | humanize) }}
+                            {{ if (eq (.proof_type) ("dns")) }}
+                                {{ $url_text = (.nametag) }}
+                            {{ end }}
+                            <div class="row py-1">
                               <div class="col">
                                 <a href="{{ (.service_url) }}" target="_blank" rel="noopener noreferrer">
                                     {{ ($url_text) }}
                                 </a>
                               </div>
-                              <div class="col">
+                              <div class="col-2 col-lg-6">
                                 <span data-bs-tooltip data-bs-title="{{ ($status) }}"><i class="{{ ($icon) }} fa-fw"></i></span>
                               </div>
-                          {{ end }}
-                      </div>
+                            </div>
+                        {{ end }}
                     </div>
                   </div>
                 </div>
