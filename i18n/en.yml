@@ -54,11 +54,22 @@ portfolio:
 keybase:
   confirmed: { other: "Confirmed" }
   key_bits: { other: "PGP Bits" }
-  key_fingerprint: { other: "PGP Fingerprint" }
+  key_frp: { other: "PGP Fingerprint" }
   key_pgp: { other: "PGP Key" }
   location: { other: "Location" }
   name: { other: "Name" }
   nickname: { other: "Nickname" }
+  not_confirmed: { other: "Not Confirmed" }
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Keyoxide.
+# -------------------------------------------------------------------------------------------------------------------- #
+
+keyoxide:
+  confirmed: { other: "Confirmed" }
+  email: { other: "Email" }
+  key_frp: { other: "PGP Fingerprint" }
+  name: { other: "Name" }
   not_confirmed: { other: "Not Confirmed" }
 
 # -------------------------------------------------------------------------------------------------------------------- #
@@ -165,6 +176,15 @@ alert:
     info:
       other: >
         Information is synchronized with Keybase server.
+        Information is genuine and represents verified data.
+  keyoxide:
+    not_found:
+      other: >
+        Information from Keyoxide not found.
+        API key may not have been set or username may not be specified.
+    info:
+      other: >
+        Information is synchronized with Keyoxide server.
         Information is genuine and represents verified data.
   telegram:
     not_found:

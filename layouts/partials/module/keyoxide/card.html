@@ -1,0 +1,104 @@
+{{ $user := (site.Data.api.keyoxide.user) }}
+{{ $ts := (now.Unix) }}
+{{ $headers := (dict
+"User-Agent" (site.Data.api.user_agent)
+) }}
+
+{{ $data := (getJSON "https://keyoxide.org/api/3/profile/fetch?doVerification=true&query=" ($user) ($headers)) }}
+
+{{ with ($data) }}
+    {{ (partial "function/alert" (dict
+    "type" "success"
+    "icon" "fas fa-file-signature"
+    "msg" (i18n "alert.keyoxide.info")
+    )) }}
+    {{ $pgpFRP := (.publicKey.fingerprint) }}
+    {{ range (.personas) }}
+      <div class="row g-3">
+        <div class="col">
+          <div class="card">
+            <div class="card-body node-body">
+              <div class="row g-3">
+                <div class="col-lg-3">
+                  <div class="node-cover text-center">
+                      {{ $avatarURL := (urls.Parse (.avatarUrl)) }}
+                    <img class="img-fluid rounded"
+                         src="{{ $avatarURL.Scheme }}://{{ $avatarURL.Host }}{{ $avatarURL.Path }}?s=512"
+                         alt="Photo" loading="lazy"/>
+                  </div>
+                </div>
+                <div class="col-lg-9">
+                  <div class="row row-cols-1 g-3">
+                    <div class="col">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="row row-cols-2 g-1">
+                              {{ with (.name) }}
+                                <div class="col">{{ (i18n "keyoxide.name") }}</div>
+                                <div class="col">
+                                  <input class="form-control" type="text" value="{{ . }}" readonly/>
+                                </div>
+                              {{ end }}
+                              {{ with (.email) }}
+                                <div class="col">{{ (i18n "keyoxide.email") }}</div>
+                                <div class="col">
+                                  <input class="form-control" type="text" value="{{ . }}" readonly/>
+                                </div>
+                              {{ end }}
+                              {{ with ($pgpFRP) }}
+                                <div class="col">{{ (i18n "keyoxide.key_frp") }}</div>
+                                <div class="col">
+                                  <input class="form-control" type="text" value="{{ (($pgpFRP) | upper) }}" readonly/>
+                                </div>
+                              {{ end }}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="row row-cols-2 g-1">
+                              {{ range (.claims) }}
+                                  {{ $icon := ("fas fa-exclamation-triangle text-danger") }}
+                                  {{ $status := (slice 200 201) }}
+                                  {{ $statusText := (i18n "keyoxide.not_confirmed") }}
+                                  {{ $providerName := (.display.serviceProviderName) }}
+                                  {{ $profileName := (.display.profileName) }}
+                                  {{ $profileURL := (.display.profileUrl) }}
+
+                                  {{ if (in ($status) (int (.status))) }}
+                                      {{ $icon = ("fas fa-check-circle text-success") }}
+                                      {{ $statusText = (i18n "keyoxide.confirmed") }}
+                                  {{ end }}
+
+                                  {{ if (eq ($providerName) "mastodon") }}
+                                      {{ $providerName = ((urls.Parse ($profileURL)).Hostname) }}
+                                      {{ $profileName = (trim ((urls.Parse ($profileURL)).Path) "/") }}
+                                  {{ end }}
+
+                                  {{ if (in ($status) (int (.status))) }}
+                                    <div class="col">
+                                      <span class="text-secondary">{{ ($providerName) }} /</span>
+                                      <a href="{{ ($profileURL) }}" target="_blank" rel="noopener noreferrer">
+                                          {{ ($profileName) }}
+                                      </a>
+                                    </div>
+                                    <div class="col">
+                                      <span data-bs-tooltip data-bs-title="{{ ($statusText) }}"><i class="{{ ($icon) }} fa-fw"></i></span>
+                                    </div>
+                                  {{ end }}
+                              {{ end }}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{ end }}
+{{ end }}

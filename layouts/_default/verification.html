@@ -2,13 +2,13 @@
 
     {{ (partial "breadcrumb" .) }}
 
-    {{ if (and (site.Data.api.telegram.token) (site.Data.api.telegram.chat.name)) }}
-        {{ (partial "module/telegram/channels" .) }}
+    {{ if (site.Data.api.keyoxide.user) }}
+        {{ (partial "module/keyoxide/card" .) }}
     {{ else }}
         {{ (partial "function/alert" (dict
         "type" "danger"
         "icon" "fas fa-triangle-exclamation"
-        "msg" (i18n "alert.telegram.not_found")
+        "msg" (i18n "alert.keyoxide.not_found")
         )) }}
     {{ end }}
 
