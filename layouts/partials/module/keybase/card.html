@@ -69,13 +69,13 @@
                             {{ if (eq (.proof_type) ("dns")) }}
                                 {{ $url_text = (.nametag) }}
                             {{ end }}
-                            <div class="row py-1">
-                              <div class="col">
+                            <div class="d-flex align-items-center py-1">
+                              <div class="flex-grow-1">
                                 <a href="{{ (.service_url) }}" target="_blank" rel="noopener noreferrer">
                                     {{ ($url_text) }}
                                 </a>
                               </div>
-                              <div class="col-2 col-lg-6">
+                              <div>
                                 <span data-bs-tooltip data-bs-title="{{ ($status) }}"><i class="{{ ($icon) }} fa-fw"></i></span>
                               </div>
                             </div>

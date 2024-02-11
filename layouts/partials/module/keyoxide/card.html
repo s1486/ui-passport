@@ -65,26 +65,23 @@
                                 {{ $providerName := (.display.serviceProviderName) }}
                                 {{ $profileName := (.display.profileName) }}
                                 {{ $profileURL := (.display.profileUrl) }}
-
                                 {{ if (in ($status) (int (.status))) }}
                                     {{ $icon = ("fas fa-check-circle text-success") }}
                                     {{ $statusText = (i18n "keyoxide.confirmed") }}
                                 {{ end }}
-
                                 {{ if (eq ($providerName) "mastodon") }}
                                     {{ $providerName = ((urls.Parse ($profileURL)).Hostname) }}
                                     {{ $profileName = (trim ((urls.Parse ($profileURL)).Path) "/") }}
                                 {{ end }}
-
                                 {{ if (in ($status) (int (.status))) }}
-                                  <div class="row py-1">
-                                    <div class="col">
+                                  <div class="d-flex align-items-center py-1">
+                                    <div class="flex-grow-1">
                                       <span class="text-secondary">{{ ($providerName) }} /</span>
                                       <a href="{{ ($profileURL) }}" target="_blank" rel="noopener noreferrer">
                                           {{ ($profileName) }}
                                       </a>
                                     </div>
-                                    <div class="col-2 col-lg-6">
+                                    <div>
                                       <span data-bs-tooltip data-bs-title="{{ ($statusText) }}"><i class="{{ ($icon) }} fa-fw"></i></span>
                                     </div>
                                   </div>
