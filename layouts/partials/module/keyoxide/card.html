@@ -59,30 +59,47 @@
                       <div class="card">
                         <div class="card-body">
                             {{ range (.claims) }}
-                                {{ $icon := ("fas fa-exclamation-triangle text-danger") }}
-                                {{ $status := (slice 200 201) }}
-                                {{ $statusText := (i18n "keyoxide.not_confirmed") }}
                                 {{ $providerName := (.display.serviceProviderName) }}
+                                {{ $providerIcon := ("fas fa-id-badge") }}
                                 {{ $profileName := (.display.profileName) }}
                                 {{ $profileURL := (.display.profileUrl) }}
-                                {{ if (in ($status) (int (.status))) }}
-                                    {{ $icon = ("fas fa-check-circle text-success") }}
+                                {{ $statusIcon := ("fas fa-exclamation-triangle text-danger") }}
+                                {{ $statusCode := (slice 200 201) }}
+                                {{ $statusText := (i18n "keyoxide.not_confirmed") }}
+                                {{ if (in ($statusCode) (int (.status))) }}
+                                    {{ $statusIcon = ("fas fa-check-circle text-success") }}
                                     {{ $statusText = (i18n "keyoxide.confirmed") }}
                                 {{ end }}
-                                {{ if (eq ($providerName) "mastodon") }}
-                                    {{ $providerName = ((urls.Parse ($profileURL)).Hostname) }}
-                                    {{ $profileName = (trim ((urls.Parse ($profileURL)).Path) "/") }}
+                                {{ if (in (slice "mastodon" "github" "gitlab" "telegram" "twitter" "discourse") (($providerName) | lower)) }}
+                                    {{ $providerIcon = (printf "fab fa-%s" (($providerName) | lower)) }}
                                 {{ end }}
-                                {{ if (in ($status) (int (.status))) }}
+                                {{ if (in (slice "hacker news") (($providerName) | lower)) }}
+                                    {{ $providerIcon = ("fab fa-hacker-news") }}
+                                {{ end }}
+                                {{ if (in (slice "forgejo") (($providerName) | lower)) }}
+                                    {{ $providerIcon = ("fab fa-git-alt") }}
+                                {{ end }}
+                                {{ if (in (slice "irc") (($providerName) | lower)) }}
+                                    {{ $providerIcon = ("fas fa-comments") }}
+                                {{ end }}
+                                {{ if (in (slice "liberapay" "open collective") (($providerName) | lower)) }}
+                                    {{ $providerIcon = ("fas fa-circle-dollar-to-slot") }}
+                                {{ end }}
+                                {{ if (in (slice "DNS") ($providerName)) }}
+                                    {{ $providerIcon = ("fas fa-globe") }}
+                                {{ end }}
+                                {{ if (in ($statusCode) (int (.status))) }}
                                   <div class="d-flex align-items-center py-1">
+                                    <div class="text-secondary" data-bs-tooltip data-bs-title="{{ (($providerName) | htmlEscape) }}">
+                                      <i class="{{ ($providerIcon) }} fa-fw me-1"></i>
+                                    </div>
                                     <div class="flex-grow-1">
-                                      <span class="text-secondary">{{ ($providerName) }} /</span>
-                                      <a href="{{ ($profileURL) }}" target="_blank" rel="noopener noreferrer">
-                                          {{ ($profileName) }}
+                                      <a href="{{ (($profileURL) | safeURL) }}" target="_blank" rel="noopener noreferrer">
+                                          {{ ((urls.Parse ($profileURL)).Hostname) }}
                                       </a>
                                     </div>
-                                    <div>
-                                      <span data-bs-tooltip data-bs-title="{{ ($statusText) }}"><i class="{{ ($icon) }} fa-fw"></i></span>
+                                    <div data-bs-tooltip data-bs-title="{{ ($statusText) }}">
+                                      <i class="{{ ($statusIcon) }} fa-fw"></i>
                                     </div>
                                   </div>
                                 {{ end }}
