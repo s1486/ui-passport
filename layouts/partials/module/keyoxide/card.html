@@ -8,112 +8,107 @@
 {{ $data := (dict) }}
 
 {{ with (resources.GetRemote ($url) ($headers)) }}
-    {{ with (.Err) }}
-        {{ errorf "%s" . }}
-    {{ else }}
-        {{ (partial "function/alert" (dict
-        "type" "success"
-        "icon" "fas fa-file-signature"
-        "msg" (i18n "alert.keyoxide.info")
-        )) }}
-        {{ $data = (. | transform.Unmarshal) }}
-        {{ $pgpFRP := ($data.publicKey.fingerprint) }}
-        {{ range ($data.personas) }}
-          <div class="row g-3">
-            <div class="col">
-              <div class="card">
-                <div class="card-body node-body">
-                  <div class="row g-3">
-                    <div class="col-lg-3">
-                      <div class="node-cover text-center">
-                          {{ $avatarURL := (urls.Parse (.avatarUrl)) }}
-                        <img class="img-fluid rounded"
-                             src="{{ $avatarURL.Scheme }}://{{ $avatarURL.Host }}{{ $avatarURL.Path }}?s=512"
-                             alt="Photo" loading="lazy"/>
-                      </div>
-                    </div>
-                    <div class="col-lg-9">
-                      <div class="row row-cols-1 g-3">
-                        <div class="col">
-                          <div class="card">
-                            <div class="card-body">
-                              <div class="row row-cols-1 row-cols-lg-2 g-2">
-                                  {{ with (.name) }}
-                                    <div class="col">{{ (i18n "keyoxide.name") }}</div>
-                                    <div class="col">
-                                      <input class="form-control" type="text" value="{{ . }}" readonly/>
-                                    </div>
-                                  {{ end }}
-                                  {{ with (.email) }}
-                                    <div class="col">{{ (i18n "keyoxide.email") }}</div>
-                                    <div class="col">
-                                      <input class="form-control" type="text" value="{{ . }}" readonly/>
-                                    </div>
-                                  {{ end }}
-                                  {{ with ($pgpFRP) }}
-                                    <div class="col">{{ (i18n "keyoxide.key_frp") }}</div>
-                                    <div class="col">
-                                      <input class="form-control" type="text" value="{{ (($pgpFRP) | upper) }}"
-                                             readonly/>
-                                    </div>
-                                  {{ end }}
-                              </div>
-                            </div>
+    {{ (partial "function/alert" (dict
+    "type" "success"
+    "icon" "fas fa-file-signature"
+    "msg" (i18n "alert.keyoxide.info")
+    )) }}
+    {{ $data = (. | transform.Unmarshal) }}
+    {{ $pgpFRP := ($data.publicKey.fingerprint) }}
+    {{ range ($data.personas) }}
+      <div class="row g-3">
+        <div class="col">
+          <div class="card">
+            <div class="card-body node-body">
+              <div class="row g-3">
+                <div class="col-lg-3">
+                  <div class="node-cover text-center">
+                      {{ $avatarURL := (urls.Parse (.avatarUrl)) }}
+                    <img class="img-fluid rounded"
+                         src="{{ $avatarURL.Scheme }}://{{ $avatarURL.Host }}{{ $avatarURL.Path }}?s=512"
+                         alt="Photo" loading="lazy"/>
+                  </div>
+                </div>
+                <div class="col-lg-9">
+                  <div class="row row-cols-1 g-3">
+                    <div class="col">
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="row row-cols-1 row-cols-lg-2 g-2">
+                              {{ with (.name) }}
+                                <div class="col">{{ (i18n "keyoxide.name") }}</div>
+                                <div class="col">
+                                  <input class="form-control" type="text" value="{{ . }}" readonly/>
+                                </div>
+                              {{ end }}
+                              {{ with (.email) }}
+                                <div class="col">{{ (i18n "keyoxide.email") }}</div>
+                                <div class="col">
+                                  <input class="form-control" type="text" value="{{ . }}" readonly/>
+                                </div>
+                              {{ end }}
+                              {{ with ($pgpFRP) }}
+                                <div class="col">{{ (i18n "keyoxide.key_frp") }}</div>
+                                <div class="col">
+                                  <input class="form-control" type="text" value="{{ (($pgpFRP) | upper) }}"
+                                         readonly/>
+                                </div>
+                              {{ end }}
                           </div>
                         </div>
-                        <div class="col">
-                          <div class="card">
-                            <div class="card-body">
-                                {{ range (.claims) }}
-                                    {{ $providerName := (.display.serviceProviderName) }}
-                                    {{ $providerIcon := ("fas fa-id-badge") }}
-                                    {{ $profileName := (.display.profileName) }}
-                                    {{ $profileURL := (.display.profileUrl) }}
-                                    {{ $statusIcon := ("fas fa-exclamation-triangle text-danger") }}
-                                    {{ $statusCode := (slice 200 201) }}
-                                    {{ $statusText := (i18n "keyoxide.not_confirmed") }}
-                                    {{ if (in ($statusCode) (int (.status))) }}
-                                        {{ $statusIcon = ("fas fa-check-circle text-success") }}
-                                        {{ $statusText = (i18n "keyoxide.confirmed") }}
-                                    {{ end }}
-                                    {{ if (in (slice "mastodon" "github" "gitlab" "telegram" "twitter" "discourse") (($providerName) | lower)) }}
-                                        {{ $providerIcon = (printf "fab fa-%s" (($providerName) | lower)) }}
-                                    {{ end }}
-                                    {{ if (in (slice "hacker news") (($providerName) | lower)) }}
-                                        {{ $providerIcon = ("fab fa-hacker-news") }}
-                                    {{ end }}
-                                    {{ if (in (slice "forgejo") (($providerName) | lower)) }}
-                                        {{ $providerIcon = ("fab fa-git-alt") }}
-                                    {{ end }}
-                                    {{ if (in (slice "irc") (($providerName) | lower)) }}
-                                        {{ $providerIcon = ("fas fa-comments") }}
-                                    {{ end }}
-                                    {{ if (in (slice "liberapay" "open collective") (($providerName) | lower)) }}
-                                        {{ $providerIcon = ("fas fa-circle-dollar-to-slot") }}
-                                    {{ end }}
-                                    {{ if (in (slice "DNS") ($providerName)) }}
-                                        {{ $providerIcon = ("fas fa-globe") }}
-                                    {{ end }}
-                                    {{ if (in ($statusCode) (int (.status))) }}
-                                      <div class="d-flex align-items-center py-1">
-                                        <div class="text-secondary" data-bs-tooltip
-                                             data-bs-title="{{ (($providerName) | htmlEscape) }}">
-                                          <i class="{{ ($providerIcon) }} fa-fw me-1"></i>
-                                        </div>
-                                        <div class="flex-grow-1">
-                                          <a href="{{ (($profileURL) | safeURL) }}" target="_blank"
-                                             rel="noopener noreferrer">
-                                              {{ ((urls.Parse ($profileURL)).Hostname) }}
-                                          </a>
-                                        </div>
-                                        <div data-bs-tooltip data-bs-title="{{ ($statusText) }}">
-                                          <i class="{{ ($statusIcon) }} fa-fw"></i>
-                                        </div>
-                                      </div>
-                                    {{ end }}
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card">
+                        <div class="card-body">
+                            {{ range (.claims) }}
+                                {{ $providerName := (.display.serviceProviderName) }}
+                                {{ $providerIcon := ("fas fa-id-badge") }}
+                                {{ $profileName := (.display.profileName) }}
+                                {{ $profileURL := (.display.profileUrl) }}
+                                {{ $statusIcon := ("fas fa-exclamation-triangle text-danger") }}
+                                {{ $statusCode := (slice 200 201) }}
+                                {{ $statusText := (i18n "keyoxide.not_confirmed") }}
+                                {{ if (in ($statusCode) (int (.status))) }}
+                                    {{ $statusIcon = ("fas fa-check-circle text-success") }}
+                                    {{ $statusText = (i18n "keyoxide.confirmed") }}
                                 {{ end }}
-                            </div>
-                          </div>
+                                {{ if (in (slice "mastodon" "github" "gitlab" "telegram" "twitter" "discourse") (($providerName) | lower)) }}
+                                    {{ $providerIcon = (printf "fab fa-%s" (($providerName) | lower)) }}
+                                {{ end }}
+                                {{ if (in (slice "hacker news") (($providerName) | lower)) }}
+                                    {{ $providerIcon = ("fab fa-hacker-news") }}
+                                {{ end }}
+                                {{ if (in (slice "forgejo") (($providerName) | lower)) }}
+                                    {{ $providerIcon = ("fab fa-git-alt") }}
+                                {{ end }}
+                                {{ if (in (slice "irc") (($providerName) | lower)) }}
+                                    {{ $providerIcon = ("fas fa-comments") }}
+                                {{ end }}
+                                {{ if (in (slice "liberapay" "open collective") (($providerName) | lower)) }}
+                                    {{ $providerIcon = ("fas fa-circle-dollar-to-slot") }}
+                                {{ end }}
+                                {{ if (in (slice "DNS") ($providerName)) }}
+                                    {{ $providerIcon = ("fas fa-globe") }}
+                                {{ end }}
+                                {{ if (in ($statusCode) (int (.status))) }}
+                                  <div class="d-flex align-items-center py-1">
+                                    <div class="text-secondary" data-bs-tooltip
+                                         data-bs-title="{{ (($providerName) | htmlEscape) }}">
+                                      <i class="{{ ($providerIcon) }} fa-fw me-1"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                      <a href="{{ (($profileURL) | safeURL) }}" target="_blank"
+                                         rel="noopener noreferrer">
+                                          {{ ((urls.Parse ($profileURL)).Hostname) }}
+                                      </a>
+                                    </div>
+                                    <div data-bs-tooltip data-bs-title="{{ ($statusText) }}">
+                                      <i class="{{ ($statusIcon) }} fa-fw"></i>
+                                    </div>
+                                  </div>
+                                {{ end }}
+                            {{ end }}
                         </div>
                       </div>
                     </div>
@@ -122,8 +117,7 @@
               </div>
             </div>
           </div>
-        {{ end }}
+        </div>
+      </div>
     {{ end }}
-{{ else }}
-    {{ errorf "Unable to get remote resource %q" ($url) }}
 {{ end }}

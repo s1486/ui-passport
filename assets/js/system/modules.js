@@ -6,7 +6,6 @@ import * as share from './modules/share';
 import * as qrcode from './modules/qrcode';
 import * as navbar from './modules/navbar';
 import * as fancybox from './modules/fancybox'
-import * as clipboard from './modules/clipboard'
 import * as prevent_default from './modules/prevent_default'
 
 export function init() {
@@ -18,6 +17,5 @@ export function init() {
   qrcode.init();
   navbar.init();
   fancybox.init();
-  clipboard.init();
   prevent_default.init();
 }
