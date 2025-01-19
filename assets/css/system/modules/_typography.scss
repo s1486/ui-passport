@@ -25,21 +25,21 @@ body {
         @include font-mono();
         background-color: rgba(var(--bs-danger-rgb), 5%);
         border-radius: var(--bs-border-radius-sm);
-        padding: .1rem .3rem;
-        white-space: nowrap;
+        padding: 0 .3rem;
       }
 
       pre {
         @include font-mono();
-        border-radius: var(--bs-border-radius-sm);
-        background: var(--bs-gray-900);
+        border-radius: var(--bs-border-radius);
+        display: flex;
+        padding: 1rem;
+        scrollbar-width: thin;
 
         > code {
           background: unset;
-          color: var(--bs-gray-200);
-          display: block;
-          font-size: var(--bs-body-font-size);
-          padding: 1rem;
+          flex-grow: 1;
+          line-height: 2;
+          padding: 0;
           white-space: pre;
         }
       }
