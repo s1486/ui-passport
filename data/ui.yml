@@ -53,8 +53,6 @@ scripts:
       - 'js/vendor/headroom.min.js'
       # https://cdn.jsdelivr.net/npm/@fancyapps/ui@5/dist/fancybox/fancybox.umd.js
       - 'js/vendor/fancybox.min.js'
-      # https://cdn.jsdelivr.net/npm/easyqrcodejs@4/dist/easy.qrcode.min.js
-      - 'js/vendor/qrcode.min.js'
   system:
     internal:
       - 'js/system.js'
